@@ -48,6 +48,18 @@ sudo ufw --force enable
 sudo ufw status verbose
 
 
+###############################
+# Add your SSL/TLS certificate
+###############################
+echo "# Add your SSL/TLS certificate" | cat - /etc/nginx/ssl/certificate.crt | sudo tee /etc/nginx/ssl/certificate.crt.tmp > /dev/null
+sudo mv /etc/nginx/ssl/certificate.crt.tmp /etc/nginx/ssl/certificate.crt
+
+echo "# Add your SSL/TLS key" | cat - /etc/nginx/ssl/certificate.key | sudo tee /etc/nginx/ssl/certificate.key.tmp > /dev/null
+sudo mv /etc/nginx/ssl/certificate.key.tmp /etc/nginx/ssl/certificate.key
+
+nano /etc/nginx/ssl/certificate.crt
+nano /etc/nginx/ssl/certificate.key
+
 
 ########################################
 # Copy Nginx config and enable services
@@ -57,22 +69,6 @@ cp moodle.conf /etc/nginx/sites-available/moodle
 cp react-app.conf /etc/nginx/sites-available/react-app
 sudo ln -s /etc/nginx/sites-available/moodle /etc/nginx/sites-enabled/
 sudo ln -s /etc/nginx/sites-available/react-app /etc/nginx/sites-enabled/
-
-sudo nginx -t
-sudo systemctl restart nginx
-
-
-###############################
-# Add your SSL/TLS certificate
-###############################
-echo "# Add your SSL/TLS certificate" | cat - /etc/ssl/certificate.crt | sudo tee /etc/ssl/certificate.crt.tmp > /dev/null
-sudo mv /etc/ssl/certificate.crt.tmp /etc/ssl/certificate.crt
-
-echo "# Add your SSL/TLS key" | cat - /etc/ssl/certificate.key | sudo tee /etc/ssl/certificate.key.tmp > /dev/null
-sudo mv /etc/ssl/certificate.key.tmp /etc/ssl/certificate.key
-
-nano /etc/ssl/certificate.crt
-nano /etc/ssl/certificate.key
 
 sudo nginx -t
 sudo systemctl restart nginx
