@@ -7,7 +7,26 @@ This document outlines the steps to install, prepare, and run the classification
 - Ubuntu server 24.04.1 or higher
 - Internet access to install necessary dependencies.
 
-## 1. Setting up sistem configuration
+## Automatic installation
+#### Clone source code repository
+```bash
+git clone --depth=1 https://github.com/GashpidPlatformDev/uksa-platform-services.git
+```
+#### Go to directory
+```bash
+cd uksa-platform-services
+```
+#### Give execute permissions
+```bash
+sudo chmod +x install.sh
+```
+#### Build and install platform
+```bash
+./install.sh
+```
+During the installation process, you will open the SSL/TLS certificate files that you must fill.
+
+## 1. Setting up system configuration
 
 expliacion en inglés
 
