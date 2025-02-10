@@ -82,7 +82,6 @@ sudo systemctl restart nginx
 cd moodle || exit 1
 docker-compose build
 docker-compose up -d
-
 cd - || exit 1
 
 
