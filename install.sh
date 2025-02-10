@@ -51,6 +51,8 @@ sudo ufw status verbose
 ###############################
 # Add your SSL/TLS certificate
 ###############################
+mkdir /etc/nginx/ssl
+
 echo "# Add your SSL/TLS certificate" | cat - /etc/nginx/ssl/certificate.crt | sudo tee /etc/nginx/ssl/certificate.crt.tmp > /dev/null
 sudo mv /etc/nginx/ssl/certificate.crt.tmp /etc/nginx/ssl/certificate.crt
 
