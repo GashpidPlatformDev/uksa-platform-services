@@ -62,6 +62,22 @@ sudo nginx -t
 sudo systemctl restart nginx
 
 
+###############################
+# Add your SSL/TLS certificate
+###############################
+echo "# Add your SSL/TLS certificate" | cat - /etc/ssl/certificate.crt | sudo tee /etc/ssl/certificate.crt.tmp > /dev/null
+sudo mv /etc/ssl/certificate.crt.tmp /etc/ssl/certificate.crt
+
+echo "# Add your SSL/TLS key" | cat - /etc/ssl/certificate.key | sudo tee /etc/ssl/certificate.key.tmp > /dev/null
+sudo mv /etc/ssl/certificate.key.tmp /etc/ssl/certificate.key
+
+nano /etc/ssl/certificate.crt
+nano /etc/ssl/certificate.key
+
+sudo nginx -t
+sudo systemctl restart nginx
+
+
 #################
 # Install Moodle
 #################
