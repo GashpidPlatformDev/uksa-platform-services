@@ -1,0 +1,188 @@
+{
+    "navbar": {
+        "single-menu-1": {
+            "title": "Quem somos",
+            "path": "/"
+        },
+        "menus": {
+            "menu-1": {
+                "title": "Cursos",
+                "items": {
+                    "item-1": {
+                        "title": "Presencial",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Online",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Corporativo",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-2": {
+                "title": "Exames",
+                "items": {
+                    "item-1": {
+                        "title": "Teste de classificação",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-3": {
+                "title": "Serviços",
+                "items": {
+                    "item-1": {
+                        "title": "Preparação para exames internacionais",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Preparação para entrevistas de trabalho",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Tradução oficial de documentos",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Tradução simultânea",
+                        "path": "/"
+                    }
+                }
+            }
+        },
+        "single-menu-2": {
+            "title": "Contate-nos",
+            "path": "/"
+        },
+        "single-menu-3": {
+            "title": "Entrar",
+            "path": "/"
+        },
+        "search-placeholder": "Digite para buscar...",
+        "langs": {
+            "item-1": "Español (es)",
+            "item-2": "English (en)",
+            "item-3": "Deutsch (de)",
+            "item-4": "Français (fr)",
+            "item-5": "Português (pt)"
+        }
+    },
+    "footer": {
+        "logo-desc": "Inglês para empresas e preparação para exames internacionais",
+        "menus": {
+            "menu-1": {
+                "title": "Recursos de aprendizado",
+                "items": {
+                    "item-1": {
+                        "title": "Guias de estudo",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Material para download",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Vídeos educativos",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Exercícios interativos",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-2": {
+                "title": "Programas e cursos",
+                "items": {
+                    "item-1": {
+                        "title": "Inglês para empresas",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Cursos intensivos de idiomas",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Preparação para exames internacionais",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Programas para iniciantes",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-3": {
+                "title": "Sobre nós",
+                "items": {
+                    "item-1": {
+                        "title": "Nossa história",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Conheça nossos professores",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Metodologia de ensino",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Depoimentos de estudantes",
+                        "path": "/"
+                    },
+                    "item-5": {
+                        "title": "Perguntas frequentes",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-4": {
+                "title": "Contate-nos",
+                "items": {
+                    "item-1": {
+                        "title": "Central de ajuda",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Solicite informações",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Agende uma consulta",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Localização de nossos escritórios",
+                        "path": "/"
+                    }
+                }
+            }
+        },
+        "policies": {
+            "item-1": {
+                "title": "Declaração de acessibilidade",
+                "path": "/"
+            },
+            "item-2": {
+                "title": "Política de cookies",
+                "path": "/"
+            },
+            "item-3": {
+                "title": "Política do site",
+                "path": "/"
+            },
+            "item-4": {
+                "title": "Aviso de privacidade",
+                "path": "/"
+            },
+            "item-5": {
+                "title": "Política de marcas registradas",
+                "path": "/"
+            }
+        }
+    }
+}

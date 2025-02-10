@@ -1,0 +1,286 @@
+{
+    "navbar": {
+        "single-menu-1": {
+            "title": "Quienes somos",
+            "path": "/"
+        },
+        "menus": {
+            "menu-1": {
+                "title": "Cursos",
+                "items": {
+                    "item-1": {
+                        "title": "Presencial",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "En linea",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Empresarial",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-2": {
+                "title": "Exámenes",
+                "items": {
+                    "item-1": {
+                        "title": "Examen de clasificacion",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-3": {
+                "title": "Servicios",
+                "items": {
+                    "item-1": {
+                        "title": "Preparación para exámenes internacionales",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Preparación para entrevistas de trabajo",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Traducción oficial de documentos",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Traducción simultanea",
+                        "path": "/"
+                    }
+                }
+            }
+        },
+        "single-menu-2": {
+            "title": "Contactanos",
+            "path": "/"
+        },
+        "single-menu-3": {
+            "title": "Acceder",
+            "path": "/login"
+        },
+        "search-placeholder": "Escribir para buscar...",
+        "langs": {
+            "item-1": "Español (es)",
+            "item-2": "English (en)",
+            "item-3": "Deutsch (de)",
+            "item-4": "Français (fr)",
+            "item-5": "Português (pt)"
+        }
+    },
+    "cover": {
+        "title": {
+            "top": "Bienvenidos a",
+            "middle": {
+                "sub-1": "UK",
+                "sub-2": "SA",
+                "sub-3": "EXPERTOS"
+            },
+            "bottom": "EN IDIOMAS"
+        },
+        "subtitle": "Avanza con tu equipo al siguiente nivel con nuestros cursos de inglés, y déjanos ayudarte en tu proceso de certificación",
+        "ribbon": {
+            "header": {
+                "item-1": {
+                "title": "Adquirir curso",
+                "path": "/"
+                },
+                "item-2": {
+                    "title": "Ciudades",
+                    "path": "/"
+                }
+            },
+            "middle": {
+                "item-1": {
+                    "title": "Nuestros cursos",
+                    "path": "/"
+                },
+                "item-2": {
+                    "title": "Nuestros talleres",
+                    "path": "/"
+                },
+                "item-3": {
+                    "title": "Exámenes de clasificación",
+                    "path": "/"
+                },
+                "item-4": {
+                    "title": "Preparación exámenes internacionales",
+                    "path": "/"
+                }
+            }
+        },
+        "bottom": {
+            "title": "Impulsa tu aprendizaje con clases online en vivo",
+            "text": "Descubre cómo nuestra plataforma educativa innovadora revoluciona el aprendizaje de idiomas. Con clases online impartidas por profesores expertos, recursos interactivos y un enfoque personalizado, facilitamos tu progreso y aseguramos una experiencia eficiente y de calidad. ¡Lleva tu dominio del idioma al siguiente nivel!",
+            "button": {
+                "title": "Descubre mas",
+                "path": "/"
+            }
+        }
+    },
+    "middle": {
+        "title": {
+            "item-1": "Explora los idiomas que puedes aprender y dominar en",
+            "item-2": {
+                "item-1": "UK",
+                "item-2": "SA"
+            },
+            "item-3": "EXPERTOS EN IDIOMAS"
+        },
+        "cards": {
+            "item-1": {
+                "image": "",
+                "title": "Inglés",
+                "button": "Conoce más",
+                "path": "/"
+            },
+            "item-2": {
+                "image": "",
+                "title": "Francés",
+                "button": "Conoce más",
+                "path": "/"
+            },
+            "item-3": {
+                "image": "",
+                "title": "Portugués",
+                "button": "Conoce más",
+                "path": "/"
+            },
+            "item-4": {
+                "image": "",
+                "title": "Alemán",
+                "button": "Conoce más",
+                "path": "/"
+            },
+            "item-5": {
+                "image": "",
+                "title": "Italiano",
+                "button": "Conoce más",
+                "path": "/"
+            },
+            "item-6": {
+                "image": "",
+                "title": "Español para extranjeros",
+                "button": "Conoce más",
+                "path": "/"
+            }
+        }
+    },
+    "footer": {
+        "logo-desc": "Inglés para empresas y entrenamiento para exámenes internacionales",
+        "menus": {
+            "menu-1": {
+                "title": "Recursos de aprendizaje",
+                "items": {
+                    "item-1": {
+                        "title": "Guías de estudio",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Material descargable",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Videos educativos",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Ejercicios interactivos",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-2": {
+                "title": "Programas y cursos",
+                "items": {
+                    "item-1": {
+                        "title": "Inglés para empresas",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Cursos intensivos de idiomas",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Preparación de exámenes internacionales",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Programas para principiantes",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-3": {
+                "title": "Sobre Nosotros",
+                "items": {
+                    "item-1": {
+                        "title": "Nuestra historia",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Conoce a nuestros profesores",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Metodología de enseñanza",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Testimonios de estudiantes",
+                        "path": "/"
+                    },
+                    "item-5": {
+                        "title": "Preguntas frecuentes",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-4": {
+                "title": "Contáctanos",
+                "items": {
+                    "item-1": {
+                        "title": "Centro de ayuda",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Solicita información",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Agenda una asesoría",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Ubicación de nuestras oficinas",
+                        "path": "/"
+                    }
+                }
+            }
+        },
+        "policies": {
+            "item-1": {
+                "title": "Declaración de accesibilidad",
+                "path": "/"
+            },
+            "item-2": {
+                "title": "Política de cookies",
+                "path": "/"
+            },
+            "item-3": {
+                "title": "Política del sitio",
+                "path": "/"
+            },
+            "item-4": {
+                "title": "Aviso de privacidad",
+                "path": "/"
+            },
+            "item-5": {
+                "title": "Política de marcas registradas",
+                "path": "/"
+            }
+        }
+    }
+}

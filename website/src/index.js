@@ -1,0 +1,24 @@
+import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+import Index from 'views';
+import './index.css';
+import './i18n';
+import LogIn from "views/login";
+//import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/login" element={<LogIn />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  </BrowserRouter>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+//reportWebVitals();

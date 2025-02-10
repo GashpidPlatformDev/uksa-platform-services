@@ -1,0 +1,188 @@
+{
+    "navbar": {
+        "single-menu-1": {
+            "title": "Über uns",
+            "path": "/"
+        },
+        "menus": {
+            "menu-1": {
+                "title": "Kurse",
+                "items": {
+                    "item-1": {
+                        "title": "Präsenzunterricht",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Online",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Firmenkurse",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-2": {
+                "title": "Prüfungen",
+                "items": {
+                    "item-1": {
+                        "title": "Einstufungstest",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-3": {
+                "title": "Dienstleistungen",
+                "items": {
+                    "item-1": {
+                        "title": "Vorbereitung auf internationale Prüfungen",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Vorbereitung auf Bewerbungsgespräche",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Beglaubigte Dokumentenübersetzungen",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Simultanübersetzungen",
+                        "path": "/"
+                    }
+                }
+            }
+        },
+        "single-menu-2": {
+            "title": "Kontakt",
+            "path": "/"
+        },
+        "single-menu-3": {
+            "title": "Anmelden",
+            "path": "/"
+        },
+        "search-placeholder": "Tippen, um zu suchen...",
+        "langs": {
+            "item-1": "Español (es)",
+            "item-2": "English (en)",
+            "item-3": "Deutsch (de)",
+            "item-4": "Français (fr)",
+            "item-5": "Português (pt)"
+        }
+    },
+    "footer": {
+        "logo-desc": "Englisch für Unternehmen und Prüfungsvorbereitung",
+        "menus": {
+            "menu-1": {
+                "title": "Lernressourcen",
+                "items": {
+                    "item-1": {
+                        "title": "Lernhilfen",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Download-Material",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Bildungsvideos",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Interaktive Übungen",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-2": {
+                "title": "Programme und Kurse",
+                "items": {
+                    "item-1": {
+                        "title": "Englisch für Unternehmen",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Intensivsprachkurse",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Internationale Prüfungsvorbereitung",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Programme für Anfänger",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-3": {
+                "title": "Über uns",
+                "items": {
+                    "item-1": {
+                        "title": "Unsere Geschichte",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Lerne unsere Lehrer kennen",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Lehrmethodik",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Studentenbewertungen",
+                        "path": "/"
+                    },
+                    "item-5": {
+                        "title": "Häufig gestellte Fragen",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-4": {
+                "title": "Kontaktieren Sie uns",
+                "items": {
+                    "item-1": {
+                        "title": "Hilfe-Center",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Information anfordern",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Beratungstermin vereinbaren",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Unsere Bürostandorte",
+                        "path": "/"
+                    }
+                }
+            }
+        },
+        "policies": {
+            "item-1": {
+                "title": "Barrierefreiheitserklärung",
+                "path": "/"
+            },
+            "item-2": {
+                "title": "Cookie-Richtlinie",
+                "path": "/"
+            },
+            "item-3": {
+                "title": "Website-Richtlinie",
+                "path": "/"
+            },
+            "item-4": {
+                "title": "Datenschutzerklärung",
+                "path": "/"
+            },
+            "item-5": {
+                "title": "Markenrichtlinie",
+                "path": "/"
+            }
+        }
+    }
+}

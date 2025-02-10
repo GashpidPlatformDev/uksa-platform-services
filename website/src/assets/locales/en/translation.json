@@ -1,0 +1,188 @@
+{
+    "navbar": {
+        "single-menu-1": {
+            "title": "About Us",
+            "path": "/"
+        },
+        "menus": {
+            "menu-1": {
+                "title": "Courses",
+                "items": {
+                    "item-1": {
+                        "title": "On-site",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Online",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Corporate",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-2": {
+                "title": "Exams",
+                "items": {
+                    "item-1": {
+                        "title": "Placement Test",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-3": {
+                "title": "Services",
+                "items": {
+                    "item-1": {
+                        "title": "International Exam Preparation",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Job Interview Preparation",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Certified Document Translation",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Simultaneous Translation",
+                        "path": "/"
+                    }
+                }
+            }
+        },
+        "single-menu-2": {
+            "title": "Contact Us",
+            "path": "/"
+        },
+        "single-menu-3": {
+            "title": "Log In",
+            "path": "/"
+        },
+        "search-placeholder": "Type to search...",
+        "langs": {
+            "item-1": "Español (es)",
+            "item-2": "English (en)",
+            "item-3": "Deutsch (de)",
+            "item-4": "Français (fr)",
+            "item-5": "Português (pt)"
+        }
+    },
+    "footer": {
+        "logo-desc": "English for businesses and international exam training",
+        "menus": {
+            "menu-1": {
+                "title": "Learning Resources",
+                "items": {
+                    "item-1": {
+                        "title": "Study Guides",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Downloadable Materials",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Educational Videos",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Interactive Exercises",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-2": {
+                "title": "Programs and Courses",
+                "items": {
+                    "item-1": {
+                        "title": "English for Businesses",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Intensive Language Courses",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "International Exam Preparation",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Beginner Programs",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-3": {
+                "title": "About Us",
+                "items": {
+                    "item-1": {
+                        "title": "Our History",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Meet Our Teachers",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Teaching Methodology",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Student Testimonials",
+                        "path": "/"
+                    },
+                    "item-5": {
+                        "title": "Frequently Asked Questions",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-4": {
+                "title": "Contact Us",
+                "items": {
+                    "item-1": {
+                        "title": "Help Center",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Request Information",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Schedule a Consultation",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Office Locations",
+                        "path": "/"
+                    }
+                }
+            }
+        },
+        "policies": {
+            "item-1": {
+                "title": "Accessibility Statement",
+                "path": "/"
+            },
+            "item-2": {
+                "title": "Cookie Policy",
+                "path": "/"
+            },
+            "item-3": {
+                "title": "Site Policy",
+                "path": "/"
+            },
+            "item-4": {
+                "title": "Privacy Notice",
+                "path": "/"
+            },
+            "item-5": {
+                "title": "Trademark Policy",
+                "path": "/"
+            }
+        }
+    }
+}

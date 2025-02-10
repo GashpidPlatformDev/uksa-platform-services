@@ -1,0 +1,188 @@
+{
+    "navbar": {
+        "single-menu-1": {
+            "title": "Qui sommes-nous",
+            "path": "/"
+        },
+        "menus": {
+            "menu-1": {
+                "title": "Cours",
+                "items": {
+                    "item-1": {
+                        "title": "Présentiel",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "En ligne",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Corporate",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-2": {
+                "title": "Examens",
+                "items": {
+                    "item-1": {
+                        "title": "Test de placement",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-3": {
+                "title": "Services",
+                "items": {
+                    "item-1": {
+                        "title": "Préparation aux examens internationaux",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Préparation aux entretiens d'embauche",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Traduction certifiée de documents",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Traduction simultanée",
+                        "path": "/"
+                    }
+                }
+            }
+        },
+        "single-menu-2": {
+            "title": "Contactez-nous",
+            "path": "/"
+        },
+        "single-menu-3": {
+            "title": "Se connecter",
+            "path": "/"
+        },
+        "search-placeholder": "Tapez pour rechercher...",
+        "langs": {
+            "item-1": "Español (es)",
+            "item-2": "English (en)",
+            "item-3": "Deutsch (de)",
+            "item-4": "Français (fr)",
+            "item-5": "Português (pt)"
+        }
+    },
+    "footer": {
+        "logo-desc": "Anglais pour les entreprises et préparation aux examens internationaux",
+        "menus": {
+            "menu-1": {
+                "title": "Ressources pédagogiques",
+                "items": {
+                    "item-1": {
+                        "title": "Guides d'étude",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Matériel téléchargeable",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Vidéos éducatives",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Exercices interactifs",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-2": {
+                "title": "Programmes et cours",
+                "items": {
+                    "item-1": {
+                        "title": "Anglais pour les entreprises",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Cours intensifs de langues",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Préparation aux examens internationaux",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Programmes pour débutants",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-3": {
+                "title": "À propos de nous",
+                "items": {
+                    "item-1": {
+                        "title": "Notre histoire",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Rencontrez nos professeurs",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Méthodologie d'enseignement",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Témoignages d'étudiants",
+                        "path": "/"
+                    },
+                    "item-5": {
+                        "title": "Questions fréquentes",
+                        "path": "/"
+                    }
+                }
+            },
+            "menu-4": {
+                "title": "Contactez-nous",
+                "items": {
+                    "item-1": {
+                        "title": "Centre d'aide",
+                        "path": "/"
+                    },
+                    "item-2": {
+                        "title": "Demander des informations",
+                        "path": "/"
+                    },
+                    "item-3": {
+                        "title": "Planifier une consultation",
+                        "path": "/"
+                    },
+                    "item-4": {
+                        "title": "Localisation de nos bureaux",
+                        "path": "/"
+                    }
+                }
+            }
+        },
+        "policies": {
+            "item-1": {
+                "title": "Déclaration d'accessibilité",
+                "path": "/"
+            },
+            "item-2": {
+                "title": "Politique de cookies",
+                "path": "/"
+            },
+            "item-3": {
+                "title": "Politique du site",
+                "path": "/"
+            },
+            "item-4": {
+                "title": "Avis de confidentialité",
+                "path": "/"
+            },
+            "item-5": {
+                "title": "Politique de marques déposées",
+                "path": "/"
+            }
+        }
+    }
+}

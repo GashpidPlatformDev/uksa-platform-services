@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  react-app:
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+    container_name: react-app
+    restart: always
+    ports:
+      - "8081:80"
+    networks:
+      - web-network
+networks:
+  web-network:
+    driver: bridge
