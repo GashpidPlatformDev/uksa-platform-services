@@ -68,12 +68,25 @@ nano /etc/nginx/ssl/certificate.key
 ########################################
 sudo rm /etc/nginx/sites-enabled/default
 cp moodle.conf /etc/nginx/sites-available/moodle
+cp supabase.conf /etc/nginx/sites-available/supabase
 cp react-app.conf /etc/nginx/sites-available/react-app
 sudo ln -s /etc/nginx/sites-available/moodle /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/supabase /etc/nginx/sites-enabled/
 sudo ln -s /etc/nginx/sites-available/react-app /etc/nginx/sites-enabled/
 
 sudo nginx -t
 sudo systemctl restart nginx
+
+
+#############################
+# Build and install supabase
+#############################
+git clone --depth 1 https://github.com/supabase/supabase
+cd supabase/docker || exit 1
+cp .env.example .env
+docker compose pull
+docker compose up -d
+cd - || exit 1
 
 
 #################
