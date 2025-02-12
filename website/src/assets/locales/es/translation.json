@@ -55,7 +55,7 @@
         },
         "single-menu-2": {
             "title": "Contactanos",
-            "path": "/"
+            "path": "/contact"
         },
         "single-menu-3": {
             "title": "Acceder",
@@ -281,6 +281,41 @@
                 "title": "Política de marcas registradas",
                 "path": "/"
             }
+        }
+    },
+    "login": {
+        "usr": "Ingresa tu email",
+        "pswd": "Ingresa tu contraseña",
+        "lost": "¿Olvidó su contraseña?",
+        "otherlogin": "Acceder usando:",
+        "signup": "Registrese como usuario",
+        "signupbtn": {
+            "title": "Crear nueva cuenta →",
+            "path": "/signup"
+        }
+    },
+    "signup": {
+        "title": "Registrese",
+        "name": "Nombre *",
+        "lastname": "Apellido *",
+        "email": "Email *",
+        "phone": {
+            "title": "Número *",
+            "type": {
+                "default": "Teléfono",
+                "op1": "Celular",
+                "op2": "Fíjo"
+            }
+        },
+        "pswd": "Ingresa tu contraseña",
+        "rpswd": "Repite tu contraseña",
+        "back": {
+            "title": "Ya tengo una cuenta",
+            "path": "/login"
+        },
+        "btn": {
+            "title": "Registrar",
+            "path": "/dashboard"
         }
     }
 }

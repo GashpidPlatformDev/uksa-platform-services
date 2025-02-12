@@ -1,0 +1,53 @@
+/* ------------------ */
+/*  Default subpage   */
+/* ------------------ */
+
+.subpage-container {
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+    display: flex;
+    height: 90vh;
+    width: 100vw;
+}
+
+.subpage-primary-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 15vh;
+    display: flex;
+    height: 90vh;
+    width: 70vw;
+}
+
+
+
+.footer-divider {
+    height: 15vh;
+    width: 0px;
+}
+
+/* ------------------ */
+/*   For login view   */
+/* ------------------ */
+.subpage-primary-card.login {
+    margin-top: 0px;
+    height: auto;
+    padding: 40px;
+    width: 30vw;  
+}
+
+.footer-divider.login {
+    height: 10px;
+    width: 0px;
+}
+
+
+@media (max-width: 720px) {
+    .subpage-primary-card.login {
+        width: fit-content;  
+    }
+  }

@@ -1,11 +1,13 @@
 @import url('assets/styles/fonts.css');
 @import url('assets/styles/card-styles.css');
+@import url('assets/styles/auth-styles.css');
 @import url('assets/styles/cover-styles.css');
-@import url('assets/styles/login-styles.css');
 @import url('assets/styles/middle-styles.css');
 @import url('assets/styles/navbar-styles.css');
 @import url('assets/styles/bottom-styles.css');
 @import url('assets/styles/footer-styles.css');
+@import url('assets/styles/subpage-styles.css');
+@import url('assets/styles/contact-styles.css');
 
 ::-webkit-scrollbar-track
 {

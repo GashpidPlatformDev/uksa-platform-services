@@ -1,0 +1,164 @@
+.auth-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 65vw;
+    position: relative;
+}
+
+.auth-logo {
+    position: absolute;
+    left: 10px;
+    top: -10px;
+}
+
+h2.auth-title {
+    color: #194866;
+    margin: 20px 0;
+}
+
+input.auth-input {
+    width: 85%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-forgot-password {
+    display: block;
+    margin-bottom: 10px;
+    color: #0056B3;
+    text-decoration: none;
+}
+
+.auth-forgot-password:hover {
+    text-decoration: underline;
+}
+
+.auth-button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, #0056B3 0%, #003366 100%);
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    color: white;
+    padding: 10px;
+    border: 2px solid #0056B3;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-position 0.4s ease-in-out, color 0.3s ease-in-out;
+}
+
+.auth-button:hover {
+    background-position: 0 0;
+}
+
+.auth-button:not(:hover) {
+    background-position: 100% 0;
+}
+
+.social-login {
+    margin: 10px 0;
+}
+
+.social-login button {
+    width: 48%;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+        gap: 5px;
+}
+
+.auth-icon-google{
+    width: 20px;
+}
+
+.auth-google {
+    border: 1px solid #888888;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 5px;
+    margin-left: -5px;
+    color: #0056B3;
+}
+
+.auth-google:hover {
+    background-color: #b6b6b6a2;
+}
+
+.auth-icon-microsoft{
+    width: 20px;
+}
+
+.auth-microsoft {
+    border: 1px solid #888888;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    margin-right: -5px;
+    color: #0056B3;
+}
+
+.auth-microsoft:hover {
+    background-color: #b6b6b6a2;
+}
+
+.auth-register {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.auth-register-button {
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+    background: white;
+    border: 1px solid #0056B3;
+    color: #0056B3;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+    
+    background: linear-gradient(to right, #003366 0%, #0056B3 100%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+}
+
+.auth-register-button:hover {
+    background-size: 100% 100%;
+    color: white;
+    border-color: #003366;
+    transition: background-size 0.4s ease-in-out, color 0.3s ease-in-out;
+}
+
+.auth-register-button:not(:hover) {
+    background-size: 0% 100%;
+    transition: background-size 0.4s ease-in-out;
+}
+
+.auth-phone-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 5%;
+}
+
+.auth-phone-container select {
+    width: 35%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-input-phone{
+    width: 45%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;    
+}
