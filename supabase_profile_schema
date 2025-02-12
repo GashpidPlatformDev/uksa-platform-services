@@ -1,0 +1,56 @@
+DROP TRIGGER IF EXISTS create_profile_on_signup ON auth.users;
+
+DROP POLICY IF EXISTS update_own_profile ON public.profile;
+
+DROP FUNCTION IF EXISTS create_profile_for_new_user() CASCADE;
+
+DROP TABLE IF EXISTS public.profile CASCADE;
+
+CREATE TABLE public.profile (
+  id UUID PRIMARY KEY REFERENCES auth.users(id),
+  email TEXT NOT NULL,
+  name TEXT,
+  lastname TEXT,
+  phonetype BOOLEAN,
+  phone NUMERIC,
+  areacode NUMERIC
+);
+
+CREATE FUNCTION create_profile_for_new_user()
+RETURNS TRIGGER 
+LANGUAGE plpgsql 
+SECURITY DEFINER 
+SET search_path = ''
+AS $$
+BEGIN
+  INSERT INTO public.profile (id, email)
+  VALUES (NEW.id, NEW.email)
+  ON CONFLICT (id) DO NOTHING;
+  RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER create_profile_on_signup
+AFTER INSERT ON auth.users
+FOR EACH ROW
+EXECUTE FUNCTION create_profile_for_new_user();
+
+ALTER TABLE public.profile ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY update_own_profile
+ON public.profile
+FOR UPDATE
+USING (auth.uid() = id)
+WITH CHECK (auth.uid() = id);
+
+CREATE POLICY "Allow authenticated users to read their profile"
+ON public.profile
+FOR SELECT
+USING (auth.uid() = id);
+
+
+/* for delete user in auth.user db */
+/*
+DELETE FROM public.profile WHERE id IN (SELECT id FROM auth.users);
+DELETE FROM auth.users;
+*/
