@@ -1,0 +1,433 @@
+/* -------------- Header ------------- */
+.profile-portrait-container {
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    width: 100%;
+}
+
+.profile-portrait {
+    object-position: center;
+    position: relative;
+    object-fit: cover;
+    min-height: 300px;
+    max-height: 500px;
+    height: 40vh;
+    width: 100%;
+    z-index: 0;
+}
+
+.portrait-overlay {
+    background-color: rgba(0, 128, 255, 0.175);
+    transform: translate(-50%, 0);
+    position: absolute;
+    min-height: 300px;
+    max-height: 500px;
+    height: 40vh;
+    width: 100%;
+    z-index: 1;
+    left: 50%;
+    top: 0;
+}
+
+.profile-avatar {
+    margin-top: clamp(clamp(90px, 7.5vh, 100px), -30vh, 500px);
+    transform: translate(-50%, 0);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: fit-content;
+    border-radius: 50%;
+    min-height: 80px;
+    min-width: 80px;
+    max-width: 12vh;
+    padding: 15px;
+    display: flex;
+    height: 12vh;
+    z-index: 1;
+    left: 50%;
+    top: 0;
+}
+
+.avatar-overlay {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    background-image: url('assets/media/vectors/user-circle-gear-fill.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 40% 40%;
+    background-color: rgba(0, 0, 0, 0.332);
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    position: absolute;
+    border-radius: 50%;
+    min-height: 75px;
+    min-width: 75px;
+    height: 11.5vh;
+    width: 11.5vh;
+    padding: 4px;
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+}
+
+.profile-avatar:hover .avatar-overlay {
+    visibility: visible;
+    opacity: 1;
+}
+
+.profile-avatar .img-circle {
+    border-radius: 50% !important;
+    background-color: #fff;
+    max-width: 100%;
+    padding: 4px;
+}
+
+.profile-avatar .img-responsive {
+    object-position: center;
+    object-fit: cover;
+    height: 100%;
+    width: auto;
+}
+
+.profile-portrait-container .name {
+    transform: translateX(-50%);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    min-height: 10px;
+    max-height: 20px;
+    padding: 15px;
+    display: flex;
+    height: 2vh;
+    width: 50vw;
+    z-index: 0;
+    left: 50%;
+    top: 100%;
+}
+
+.name .title {
+    color: #ffffff;
+    text-align: center;
+}
+
+.profile-ribbon {
+    transform: translateX(-50%);
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    text-align: center;
+    position: relative;
+    min-height: 80px;
+    max-height: 80px;
+    margin-top: -63px;
+    padding: 15px;
+    display: flex;
+    height: 12vh;
+    z-index: 1;
+    left: 50%;
+    gap: 10px;
+
+}
+
+.profile-ribbon .stat {
+    color: #fff;
+}
+
+.profile-ribbon .stat-title {
+    font-weight: bold;
+    color: dimgray;
+}
+
+
+/* -------------- Boddy ------------- */
+
+.profile-container {
+    background-color: oldlace;
+    height: auto;
+    width: 100%;
+}
+
+.profile-settings {
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    gap: 20px;
+    
+    opacity: 0;
+    transform: translateY(-20px);
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    visibility: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.profile-settings.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    position: relative;
+    visibility: visible;
+}
+
+.hidden {
+    display: none;
+}
+
+.settings-title {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    color: #665;
+    width: 100%;
+}
+
+
+.upload-avatar,
+.update-profile {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.upload-avatar {
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.update-profile {
+    width: 40%;
+}
+
+@media (max-width: 768px) {
+    .profile-settings {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .upload-avatar,
+    .update-profile {
+        width: 80%;
+    }
+}
+
+/* Create course */
+/* Contenedor principal */
+.course-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Sección del retrato */
+.course-portrait {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 10px;
+    width: 80%;
+    gap: 10px;
+}
+
+/* Contenedor de la información del curso */
+.course-info {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+}
+
+/* Etiquetas */
+.course-label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Input del título */
+.course-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid black;
+    font-size: 16px;
+}
+
+/* Textarea de la descripción */
+.course-textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 2px solid black;
+    font-size: 16px;
+    resize: none;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .course-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* profile settings */
+.avatar-upload {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .avatar-preview {
+      border: 2px solid #ccc;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      width: 40%;
+  }
+  
+  .avatar-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+/* tabs and profile content */
+.nav-container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-text {
+    color: #aaa;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.nav-text:hover {
+    color: black;
+}
+
+.nav-text.active {
+    color: black;
+}
+
+/* Línea separadora */
+.nav-separator {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #ddd;
+    margin-top: 8px;
+}
+
+.nav-indicator {
+    position: absolute;
+    bottom: 0px;
+    left: 25%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgb(188, 188, 188);
+    transition: left 0.3s ease-in-out;
+}
+
+/* Contenedor del contenido */
+.tab-content {
+    margin-top: 20px;
+    padding: 15px;
+    text-align: center;
+}
+
+/* GRID para las cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Estilos de cada card */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Imagen de la card */
+.card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Título y descripción */
+.card-title {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}

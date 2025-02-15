@@ -1,7 +1,7 @@
 {
     "navbar": {
         "single-menu-1": {
-            "title": "About Us",
+            "title": "Who we are",
             "path": "/"
         },
         "menus": {
@@ -9,7 +9,7 @@
                 "title": "Courses",
                 "items": {
                     "item-1": {
-                        "title": "On-site",
+                        "title": "In-person",
                         "path": "/"
                     },
                     "item-2": {
@@ -26,7 +26,7 @@
                 "title": "Exams",
                 "items": {
                     "item-1": {
-                        "title": "Placement Test",
+                        "title": "Placement exam",
                         "path": "/"
                     }
                 }
@@ -35,31 +35,36 @@
                 "title": "Services",
                 "items": {
                     "item-1": {
-                        "title": "International Exam Preparation",
+                        "title": "Preparation for international exams",
                         "path": "/"
                     },
                     "item-2": {
-                        "title": "Job Interview Preparation",
+                        "title": "Preparation for job interviews",
                         "path": "/"
                     },
                     "item-3": {
-                        "title": "Certified Document Translation",
+                        "title": "Official document translation",
                         "path": "/"
                     },
                     "item-4": {
-                        "title": "Simultaneous Translation",
+                        "title": "Simultaneous translation",
                         "path": "/"
                     }
                 }
             }
         },
         "single-menu-2": {
-            "title": "Contact Us",
-            "path": "/"
+            "title": "Contact us",
+            "path": "/contact"
         },
         "single-menu-3": {
-            "title": "Log In",
-            "path": "/"
+            "title": "Login",
+            "path": "/login"
+        },
+        "doropdownmenu": {
+            "dashboard": {
+                "title": "my dashboard"
+            }
         },
         "search-placeholder": "Type to search...",
         "langs": {
@@ -68,119 +73,106 @@
             "item-3": "Deutsch (de)",
             "item-4": "Français (fr)",
             "item-5": "Português (pt)"
+        },
+        "dropdown": {
+            "btn1": "Go to profile",
+            "btn2": "Log out"
         }
     },
-    "footer": {
-        "logo-desc": "English for businesses and international exam training",
-        "menus": {
-            "menu-1": {
-                "title": "Learning Resources",
-                "items": {
-                    "item-1": {
-                        "title": "Study Guides",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Downloadable Materials",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "Educational Videos",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Interactive Exercises",
-                        "path": "/"
-                    }
+    "cover": {
+        "title": {
+            "top": "Welcome to",
+            "middle": {
+                "sub-1": "UK",
+                "sub-2": "SA",
+                "sub-3": "EXPERTS"
+            },
+            "bottom": "IN LANGUAGES"
+        },
+        "subtitle": "Take your team to the next level with our English courses, and let us help you in your certification process",
+        "ribbon": {
+            "header": {
+                "item-1": {
+                "title": "Purchase course",
+                "path": "/"
+                },
+                "item-2": {
+                    "title": "Cities",
+                    "path": "/"
                 }
             },
-            "menu-2": {
-                "title": "Programs and Courses",
-                "items": {
-                    "item-1": {
-                        "title": "English for Businesses",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Intensive Language Courses",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "International Exam Preparation",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Beginner Programs",
-                        "path": "/"
-                    }
-                }
-            },
-            "menu-3": {
-                "title": "About Us",
-                "items": {
-                    "item-1": {
-                        "title": "Our History",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Meet Our Teachers",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "Teaching Methodology",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Student Testimonials",
-                        "path": "/"
-                    },
-                    "item-5": {
-                        "title": "Frequently Asked Questions",
-                        "path": "/"
-                    }
-                }
-            },
-            "menu-4": {
-                "title": "Contact Us",
-                "items": {
-                    "item-1": {
-                        "title": "Help Center",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Request Information",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "Schedule a Consultation",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Office Locations",
-                        "path": "/"
-                    }
+            "middle": {
+                "item-1": {
+                    "title": "Our courses",
+                    "path": "/"
+                },
+                "item-2": {
+                    "title": "Our workshops",
+                    "path": "/"
+                },
+                "item-3": {
+                    "title": "Placement exams",
+                    "path": "/"
+                },
+                "item-4": {
+                    "title": "International exam preparation",
+                    "path": "/"
                 }
             }
         },
-        "policies": {
+        "bottom": {
+            "title": "Boost your learning with live online classes",
+            "text": "Discover how our innovative educational platform revolutionizes language learning. With online classes taught by expert teachers, interactive resources, and a personalized approach, we facilitate your progress and ensure an efficient and quality experience. Take your language proficiency to the next level!",
+            "button": {
+                "title": "Discover more",
+                "path": "/"
+            }
+        }
+    },
+    "middle": {
+        "title": {
+            "item-1": "Explore the languages you can learn and master at",
+            "item-2": {
+                "item-1": "UK",
+                "item-2": "SA"
+            },
+            "item-3": "EXPERTS IN LANGUAGES"
+        },
+        "cards": {
             "item-1": {
-                "title": "Accessibility Statement",
+                "image": "",
+                "title": "English",
+                "button": "Learn more",
                 "path": "/"
             },
             "item-2": {
-                "title": "Cookie Policy",
+                "image": "",
+                "title": "French",
+                "button": "Learn more",
                 "path": "/"
             },
             "item-3": {
-                "title": "Site Policy",
+                "image": "",
+                "title": "Portuguese",
+                "button": "Learn more",
                 "path": "/"
             },
             "item-4": {
-                "title": "Privacy Notice",
+                "image": "",
+                "title": "German",
+                "button": "Learn more",
                 "path": "/"
             },
             "item-5": {
-                "title": "Trademark Policy",
+                "image": "",
+                "title": "Italian",
+                "button": "Learn more",
+                "path": "/"
+            },
+            "item-6": {
+                "image": "",
+                "title": "Spanish for foreigners",
+                "button": "Learn more",
                 "path": "/"
             }
         }

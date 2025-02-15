@@ -1,29 +1,29 @@
-import { useState } from 'react';
 import { navbarIcon } from 'components/imports/imports';
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { useTask } from 'context/TaskContext';
+import { client } from 'supabase/client';
 import SubPage from 'components/subpage';
 import { Link } from 'react-router-dom';
-import { useTranslation } from "react-i18next";
-import { client } from 'supabase/client';
+import { useState } from 'react';
 
 function SignUp() {
     const { t } = useTranslation();
-
-    // Estados para almacenar los valores de los inputs
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+    const navigate = useNavigate();
+    const {updateProfile} = useTask();
     const [email, setEmail] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [password, setPassword] = useState('');
+    const [firstName, setFirstName] = useState('');
     const [phoneType, setPhoneType] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
     const [passwordMismatch, setPasswordMismatch] = useState(false);
 
-    // Manejar el cambio en los inputs
     const handleChange = (setter) => (e) => setter(e.target.value);
 
-    // Manejar el envío del formulario
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Evita que la página se recargue
+        e.preventDefault();
         
         if (password !== repeatPassword) {
             setPassword('');
@@ -31,8 +31,6 @@ function SignUp() {
             setPasswordMismatch(true);
             return;
         }
-
-        ////
 
         const { data, error } = await client.auth.signUp({
             email: email,
@@ -44,8 +42,7 @@ function SignUp() {
           } else if (data?.user) {
             const userId = data.user.id;
           
-            // Esperar hasta que el perfil haya sido insertado en la tabla "profile"
-            let retries = 5; // Intentos máximos
+            let retries = 5;
             let profileExists = false;
           
             while (retries > 0 && !profileExists) {
@@ -59,7 +56,7 @@ function SignUp() {
                 profileExists = true;
                 break;
               }
-              await new Promise((resolve) => setTimeout(resolve, 500)); // Espera 500ms antes de reintentar
+              await new Promise((resolve) => setTimeout(resolve, 500));
               retries--;
             }
           
@@ -68,7 +65,6 @@ function SignUp() {
               return;
             }
           
-            // Ahora actualizamos el perfil porque ya existe
             const { error: updateError } = await client
               .from("profile")
               .update({
@@ -83,20 +79,10 @@ function SignUp() {
             if (updateError) {
               console.error("Error al actualizar el perfil:", updateError.message);
             } else {
-              console.log("Perfil actualizado correctamente");
+              updateProfile();
+              navigate(t("signup.btn.path"));
             }
           }
-           
-
-        //#
-
-        console.log("Nombre:", firstName);
-        console.log("Apellido:", lastName);
-        console.log("Correo:", email);
-        console.log("Teléfono:", phoneType, phoneNumber);
-        console.log("Contraseña:", password);
-
-        // Aquí puedes agregar la lógica para registrar al usuario
     };
 
     return (
@@ -151,7 +137,7 @@ function SignUp() {
                     <input 
                         className='auth-input' 
                         type="password" 
-                        placeholder={passwordMismatch ? t("signup.pswd.mismatch") : t("signup.pswd")}  
+                        placeholder={passwordMismatch ? t("signup.pswd.mismatch") : t("signup.pswd.placeholder")}  
                         value={password} 
                         onChange={handleChange(setPassword)} 
                         required 

@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar, Nav, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {userIcon, navbarIcon, downArrow, menuIcon, langIcon, coursesIcon, examsIcon, servicesIcon} from '../imports/imports';
 import { useTranslation } from "react-i18next";
+import { useTask } from 'context/TaskContext';
 import { Link } from 'react-router-dom';
 
 const MobileNavbar = ({ setCurrentLang }) => {
+  const {profile} = useTask()
   const { t, i18n } = useTranslation();
+  const [userName, setUserName] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navbar = t("navbar", { returnObjects: true });
   const icons = [coursesIcon, examsIcon, servicesIcon];
   const [isDropdown_menu, setDropdown_menu] = useState(false);
   const [expandedSubMenus, setExpandedSubMenus] = useState([false, false, false]);
+
+  useEffect(() => {
+      if(profile?.data[0]?.name) {
+        const name = profile?.data[0]?.name.split(" ");
+        setUserName(name);
+      }
+    },[profile])
   
   const langs = [
     t("navbar.langs.item-1"), 
@@ -79,7 +89,7 @@ const MobileNavbar = ({ setCurrentLang }) => {
             <Link to={t("navbar.single-menu-3.path")}>
               <img src={userIcon} alt="User-Icon" />
             </Link>
-            <Link to={t("navbar.single-menu-3.path")} className="navbar-link">{t("navbar.single-menu-3.title")}</Link>
+            <Link to={t("navbar.single-menu-3.path")} className="navbar-link">{userName ? userName : t("navbar.single-menu-3.title")}</Link>
           </div>
         </div>
       </div>

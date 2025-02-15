@@ -13,7 +13,7 @@ const DesktopFooter = () => {
         <Row className='footer-desktop-row'>
           <Col md="3" className="footer-desktop-logo">
             <img src={footerIcon} alt="Navbar-Icon" className="navbar-desktop-logo" />
-            <p className="footer-description">
+            <p className="footer-description" style={{color: "white"}}>
               {t("footer.logo-desc")}
             </p>
           </Col>

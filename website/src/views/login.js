@@ -1,28 +1,35 @@
-import { useState } from 'react';
 import { /*iconGoogle, iconMicrosoft, */navbarIcon } from 'components/imports/imports';
-import SubPage from 'components/subpage';
-import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { useTask } from 'context/TaskContext';
+import SubPage from 'components/subpage';
+import { client } from 'supabase/client';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function LogIn() {
     const { t } = useTranslation();
-
-    // Estados para almacenar los valores de los inputs
+    const navigate = useNavigate();
+    const {updateProfile} = useTask();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    // Manejar el cambio en los inputs
     const handleUsernameChange = (e) => setUsername(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
 
-    // Manejar el envío del formulario
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Evita que la página se recargue
-        console.log("Usuario:", username);
-        console.log("Contraseña:", password);
-        // Aquí puedes agregar lógica para autenticación
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await client.auth.signInWithPassword({
+            email: username,
+            password: password
+        }).then((resp) => {
+            if(!resp.error){
+                updateProfile();
+                navigate(t("login.dashboard.path"));
+            }
+        })
     };
-
+    
     return (
         <SubPage mode={'login'}>
             <div className="auth-container">
@@ -46,7 +53,7 @@ function LogIn() {
                         required 
                     />
                     <Link to='' className="auth-forgot-password">{t("login.lost")}</Link>
-                    <button type="submit" className="auth-button">{t("navbar.single-menu-3.title")}</button>
+                    <button type="submit" className="auth-button">{t("login.dashboard.title")}</button>
                 </form>
                 {/*
                 <p>{t("login.otherlogin")}</p>

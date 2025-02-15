@@ -1,6 +1,6 @@
-import MobileNavbar from "./mobile-navbar";
+import MobileNavbar from "./mobileNavbar";
 import { useEffect, useState } from "react";
-import DesktopNavbar from "./desktop-navbar";
+import DesktopNavbar from "./desktopNavbar";
 import { useTranslation } from "react-i18next";
 
 const Navbar = () => {

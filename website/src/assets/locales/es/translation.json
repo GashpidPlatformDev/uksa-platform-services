@@ -61,6 +61,11 @@
             "title": "Acceder",
             "path": "/login"
         },
+        "doropdownmenu": {
+            "dashboard": {
+                "title": "my dashboard"
+            }
+        },
         "search-placeholder": "Escribir para buscar...",
         "langs": {
             "item-1": "Español (es)",
@@ -68,6 +73,10 @@
             "item-3": "Deutsch (de)",
             "item-4": "Français (fr)",
             "item-5": "Português (pt)"
+        },
+        "dopdown": {
+            "btn1": "Ir al perfil",
+            "btn2": "Cerrar sesion"
         }
     },
     "cover": {
@@ -287,6 +296,10 @@
         "usr": "Ingresa tu email",
         "pswd": "Ingresa tu contraseña",
         "lost": "¿Olvidó su contraseña?",
+        "dashboard": {
+            "title": "Acceder",
+            "path": "/dashboard"
+        },
         "otherlogin": "Acceder usando:",
         "signup": "Registrese como usuario",
         "signupbtn": {
@@ -307,7 +320,10 @@
                 "op2": "Fíjo"
             }
         },
-        "pswd": "Ingresa tu contraseña",
+        "pswd": {
+            "placeholder": "Ingresa tu contraseña",
+            "mismatch": "las contraseñas no coinciden"
+        },
         "rpswd": "Repite tu contraseña",
         "back": {
             "title": "Ya tengo una cuenta",
@@ -316,6 +332,17 @@
         "btn": {
             "title": "Registrar",
             "path": "/dashboard"
+        }
+    },
+    "profile": {
+        "settings": {
+            "title": "Configuración del perfil",
+            "btn1": "Actualizar perfil",
+            "btn2": {
+                "state1": "Subir imagen",
+                "state2": "Subiendo..."
+            },
+            "text": "Utilice este formulario para mantener actualizado el perfil de su cuenta. La dirección de correo electrónico que aparece aquí se utilizará para iniciar sesión en su cuenta y para otros servicios de la misma. Si necesita actualizar su dirección de correo electrónico, comuníquese con el servicio de asistencia."
         }
     }
 }

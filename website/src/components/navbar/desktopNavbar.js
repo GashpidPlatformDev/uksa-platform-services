@@ -1,19 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Navbar, Nav, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {userIcon, navbarIcon, coursesIcon, examsIcon, servicesIcon, downArrow, lensIcon, langIcon} from '../imports/imports';
 import { useTranslation } from "react-i18next";
+import { useTask } from 'context/TaskContext';
 import { Link } from 'react-router-dom';
+import NavbarDropdownMenu from './dropdown';
+
 
 const DesktopNavbar = ({ currentLang, setCurrentLang }) => {
+  const {profile} = useTask()
+  const loginRef = useRef(null);
   const { t, i18n } = useTranslation();
+  const [userName, setUserName] = useState(null);
   const navbar = t("navbar", { returnObjects: true });
   const icons = [coursesIcon, examsIcon, servicesIcon];
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdown_menu_1, setDropdown_menu_1] = useState(false);
   const [isDropdown_menu_2, setDropdown_menu_2] = useState(false);
   const [isDropdown_menu_3, setDropdown_menu_3] = useState(false);
   const [isDropdown_menu_4, setDropdown_menu_4] = useState(false);
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const isDropdownMenus = [isDropdown_menu_1, isDropdown_menu_2, isDropdown_menu_3]
+
+  useEffect(() => {
+    if(profile?.data[0]?.name) {
+      const name = profile?.data[0]?.name.split(" ");
+      setUserName(name);
+    }
+  },[profile])
 
   const langs = [
     t("navbar.langs.item-1"), 
@@ -96,11 +110,30 @@ const DesktopNavbar = ({ currentLang, setCurrentLang }) => {
               <Link to={t("navbar.single-menu-2.path")} className="navbar-link">{t("navbar.single-menu-2.title")}</Link>
             </NavItem>
           </Nav>
-          <Nav className="navbar-desktop-login">
-            <Link to={t("navbar.single-menu-3.path")}>
+          <Nav className="navbar-desktop-login" ref={loginRef}>
+            <Link 
+              to={userName ? undefined : t("navbar.single-menu-3.path")}
+              onClick={(e) => {
+                if (userName) {
+                  e.preventDefault();
+                  setIsDropdownOpen(!isDropdownOpen);
+                }
+              }}
+            >
               <img src={userIcon} alt="User-Icon" />
             </Link>
-            <Link to={t("navbar.single-menu-3.path")} className="navbar-link">{t("navbar.single-menu-3.title")}</Link>
+
+            <Link 
+              to={userName ? "#" : t("navbar.single-menu-3.path")} 
+              className="navbar-link"
+              onClick={(e) => {
+                if (userName) setIsDropdownOpen(!isDropdownOpen);
+              }}
+            >
+              {userName ? userName : t("navbar.single-menu-3.title")}
+            </Link>
+
+            {isDropdownOpen && <NavbarDropdownMenu triggerRef={loginRef} />}
           </Nav>
         </div>
       </div>

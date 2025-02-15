@@ -1,3 +1,4 @@
+/*
 DROP TRIGGER IF EXISTS create_profile_on_signup ON auth.users;
 
 DROP POLICY IF EXISTS update_own_profile ON public.profile;
@@ -47,10 +48,496 @@ CREATE POLICY "Allow authenticated users to read their profile"
 ON public.profile
 FOR SELECT
 USING (auth.uid() = id);
-
+*/
 
 /* for delete user in auth.user db */
 /*
 DELETE FROM public.profile WHERE id IN (SELECT id FROM auth.users);
 DELETE FROM auth.users;
 */
+
+DROP TRIGGER IF EXISTS create_profile_on_signup ON auth.users;
+
+DROP POLICY IF EXISTS update_own_profile ON public.profile;
+
+DROP FUNCTION IF EXISTS create_profile_for_new_user() CASCADE;
+
+DROP TABLE IF EXISTS public.profile CASCADE;
+
+CREATE TABLE public.profile (
+  id UUID PRIMARY KEY REFERENCES auth.users(id),
+  email TEXT NOT NULL,
+  name TEXT,
+  lastname TEXT,
+  phonetype BOOLEAN,
+  phone NUMERIC,
+  areacode NUMERIC,
+  avatar TEXT
+);
+
+CREATE FUNCTION create_profile_for_new_user()
+RETURNS TRIGGER 
+LANGUAGE plpgsql 
+SECURITY DEFINER 
+SET search_path = ''
+AS $$
+BEGIN
+  INSERT INTO public.profile (id, email)
+  VALUES (NEW.id, NEW.email)
+  ON CONFLICT (id) DO NOTHING;
+  RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER create_profile_on_signup
+AFTER INSERT ON auth.users
+FOR EACH ROW
+EXECUTE FUNCTION create_profile_for_new_user();
+
+ALTER TABLE public.profile ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY update_own_profile
+ON public.profile
+FOR UPDATE
+USING (auth.uid() = id)
+WITH CHECK (auth.uid() = id);
+
+CREATE POLICY "Allow authenticated users to read their profile"
+ON public.profile
+FOR SELECT
+USING (auth.uid() = id);
+
+-- Configuración del sistema de almacenamiento (buckets)
+INSERT INTO storage.buckets (id, name, public) VALUES ('profile', 'profile', false);
+INSERT INTO storage.buckets (id, name, public) VALUES ('courses', 'courses', true);
+INSERT INTO storage.buckets (id, name, public) VALUES ('website', 'website', true);
+
+-- Configuración de permisos para la carpeta 'profile'
+CREATE POLICY "Allow authenticated users to select profile bucket"
+ON storage.objects
+FOR SELECT
+USING (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+CREATE POLICY "Allow authenticated users to insert profile bucket"
+ON storage.objects
+FOR INSERT
+WITH CHECK (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+CREATE POLICY "Allow authenticated users to update profile bucket"
+ON storage.objects
+FOR UPDATE
+USING (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+CREATE POLICY "Allow authenticated users to delete profile bucket"
+ON storage.objects
+FOR DELETE
+USING (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+-- Configuración de permisos para la carpeta 'courses'
+CREATE POLICY "Allow public read access to courses"
+ON storage.objects
+FOR SELECT
+USING (bucket_id = 'courses');
+
+CREATE POLICY "Restrict insert of courses to specific user"
+ON storage.objects
+FOR INSERT
+WITH CHECK (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'courses');
+
+CREATE POLICY "Restrict update of courses to specific user"
+ON storage.objects
+FOR UPDATE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'courses');
+
+CREATE POLICY "Restrict delete of courses to specific user"
+ON storage.objects
+FOR DELETE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'courses');
+
+-- Configuración de permisos para la carpeta 'website'
+CREATE POLICY "Allow public read access to website"
+ON storage.objects
+FOR SELECT
+USING (bucket_id = 'website');
+
+CREATE POLICY "Restrict insert of website to specific user"
+ON storage.objects
+FOR INSERT
+WITH CHECK (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'website');
+
+CREATE POLICY "Restrict update of website to specific user"
+ON storage.objects
+FOR UPDATE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'website');
+
+CREATE POLICY "Restrict delete of website to specific user"
+ON storage.objects
+FOR DELETE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'website');
+
+-- Creación de subcarpetas dentro de 'website'
+INSERT INTO storage.objects (bucket_id, name) VALUES ('website', 'media/');
+INSERT INTO storage.objects (bucket_id, name) VALUES ('website', 'schema/');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* to delete all database */
+/*
+-- Eliminar todas las políticas de seguridad
+DROP POLICY IF EXISTS update_own_profile ON public.profile;
+DROP POLICY IF EXISTS "Allow authenticated users to read their profile" ON public.profile;
+DROP POLICY IF EXISTS "Allow authenticated users to select profile bucket" ON storage.objects;
+DROP POLICY IF EXISTS "Allow authenticated users to insert profile bucket" ON storage.objects;
+DROP POLICY IF EXISTS "Allow authenticated users to update profile bucket" ON storage.objects;
+DROP POLICY IF EXISTS "Allow authenticated users to delete profile bucket" ON storage.objects;
+DROP POLICY IF EXISTS "Allow authenticated users to overwrite files in profile bucket" ON storage.objects;
+DROP POLICY IF EXISTS "Allow public read access to courses" ON storage.objects;
+DROP POLICY IF EXISTS "Restrict insert of courses to specific user" ON storage.objects;
+DROP POLICY IF EXISTS "Restrict update of courses to specific user" ON storage.objects;
+DROP POLICY IF EXISTS "Restrict delete of courses to specific user" ON storage.objects;
+DROP POLICY IF EXISTS "Allow public read access to website" ON storage.objects;
+DROP POLICY IF EXISTS "Restrict insert of website to specific user" ON storage.objects;
+DROP POLICY IF EXISTS "Restrict update of website to specific user" ON storage.objects;
+DROP POLICY IF EXISTS "Restrict delete of website to specific user" ON storage.objects;
+
+-- Eliminar triggers y funciones
+DROP TRIGGER IF EXISTS create_profile_on_signup ON auth.users;
+DROP FUNCTION IF EXISTS create_profile_for_new_user() CASCADE;
+
+-- Eliminar tablas
+DROP TABLE IF EXISTS public.profile CASCADE;
+DROP TABLE IF EXISTS public.courses CASCADE;
+DROP TABLE IF EXISTS public.user_courses CASCADE;
+
+-- Eliminar buckets de almacenamiento
+DELETE FROM storage.objects WHERE bucket_id IN ('profile', 'courses', 'website');
+DELETE FROM storage.buckets WHERE id IN ('profile', 'courses', 'website');
+
+-- Eliminar todos los usuarios de autenticación
+DELETE FROM auth.users;
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*DROP TRIGGER IF EXISTS create_profile_on_signup ON auth.users;
+
+DROP POLICY IF EXISTS update_own_profile ON public.profile;
+
+DROP FUNCTION IF EXISTS create_profile_for_new_user() CASCADE;
+
+DROP TABLE IF EXISTS public.profile CASCADE;
+
+CREATE TABLE public.profile (
+  id UUID PRIMARY KEY REFERENCES auth.users(id),
+  email TEXT NOT NULL,
+  name TEXT,
+  lastname TEXT,
+  phonetype BOOLEAN,
+  phone NUMERIC,
+  areacode NUMERIC,
+  avatar TEXT
+);
+
+CREATE FUNCTION create_profile_for_new_user()
+RETURNS TRIGGER 
+LANGUAGE plpgsql 
+SECURITY DEFINER 
+SET search_path = ''
+AS $$
+BEGIN
+  INSERT INTO public.profile (id, email)
+  VALUES (NEW.id, NEW.email)
+  ON CONFLICT (id) DO NOTHING;
+  RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER create_profile_on_signup
+AFTER INSERT ON auth.users
+FOR EACH ROW
+EXECUTE FUNCTION create_profile_for_new_user();
+
+ALTER TABLE public.profile ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY update_own_profile
+ON public.profile
+FOR UPDATE
+USING (auth.uid() = id)
+WITH CHECK (auth.uid() = id);
+
+CREATE POLICY "Allow authenticated users to read their profile"
+ON public.profile
+FOR SELECT
+USING (auth.uid() = id);
+
+-- Configuración del sistema de almacenamiento (buckets)
+INSERT INTO storage.buckets (id, name, public) VALUES ('profile', 'profile', false);
+INSERT INTO storage.buckets (id, name, public) VALUES ('courses', 'courses', true);
+INSERT INTO storage.buckets (id, name, public) VALUES ('website', 'website', true);
+
+-- Configuración de permisos para la carpeta 'profile'
+CREATE POLICY "Allow authenticated users to select profile bucket"
+ON storage.objects
+FOR SELECT
+USING (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+CREATE POLICY "Allow authenticated users to insert profile bucket"
+ON storage.objects
+FOR INSERT
+WITH CHECK (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+CREATE POLICY "Allow authenticated users to update profile bucket"
+ON storage.objects
+FOR UPDATE
+USING (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+CREATE POLICY "Allow authenticated users to delete profile bucket"
+ON storage.objects
+FOR DELETE
+USING (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+CREATE POLICY "Allow authenticated users to overwrite files in profile bucket"
+ON storage.objects
+FOR UPDATE
+USING (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+-- Configuración de permisos para la carpeta 'courses'
+CREATE POLICY "Allow public read access to courses"
+ON storage.objects
+FOR SELECT
+USING (bucket_id = 'courses');
+
+CREATE POLICY "Restrict insert of courses to specific user"
+ON storage.objects
+FOR INSERT
+WITH CHECK (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'courses');
+
+CREATE POLICY "Restrict update of courses to specific user"
+ON storage.objects
+FOR UPDATE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'courses');
+
+CREATE POLICY "Restrict delete of courses to specific user"
+ON storage.objects
+FOR DELETE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'courses');
+
+-- Configuración de permisos para la carpeta 'website'
+CREATE POLICY "Allow public read access to website"
+ON storage.objects
+FOR SELECT
+USING (bucket_id = 'website');
+
+CREATE POLICY "Restrict insert of website to specific user"
+ON storage.objects
+FOR INSERT
+WITH CHECK (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'website');
+
+CREATE POLICY "Restrict update of website to specific user"
+ON storage.objects
+FOR UPDATE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'website');
+
+CREATE POLICY "Restrict delete of website to specific user"
+ON storage.objects
+FOR DELETE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'website');
+
+-- Creación de subcarpetas dentro de 'website'
+INSERT INTO storage.objects (bucket_id, name) VALUES ('website', 'media/');
+INSERT INTO storage.objects (bucket_id, name) VALUES ('website', 'schema/');
+*/
+
+DROP TRIGGER IF EXISTS create_profile_on_signup ON auth.users;
+DROP POLICY IF EXISTS update_own_profile ON public.profile;
+DROP FUNCTION IF EXISTS create_profile_for_new_user() CASCADE;
+DROP TABLE IF EXISTS public.profile CASCADE;
+DROP TABLE IF EXISTS public.user_courses CASCADE;
+DROP TABLE IF EXISTS public.courses CASCADE;
+
+CREATE TABLE public.profile (
+  id UUID PRIMARY KEY REFERENCES auth.users(id),
+  email TEXT NOT NULL,
+  name TEXT,
+  lastname TEXT,
+  phonetype BOOLEAN,
+  phone NUMERIC,
+  areacode NUMERIC,
+  avatar TEXT,
+  rol BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT now()
+);
+
+CREATE FUNCTION create_profile_for_new_user()
+RETURNS TRIGGER 
+LANGUAGE plpgsql 
+SECURITY DEFINER 
+SET search_path = ''
+AS $$
+BEGIN
+  INSERT INTO public.profile (id, email)
+  VALUES (NEW.id, NEW.email)
+  ON CONFLICT (id) DO NOTHING;
+  RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER create_profile_on_signup
+AFTER INSERT ON auth.users
+FOR EACH ROW
+EXECUTE FUNCTION create_profile_for_new_user();
+
+ALTER TABLE public.profile ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY update_own_profile
+ON public.profile
+FOR UPDATE
+USING (auth.uid() = id)
+WITH CHECK (auth.uid() = id);
+
+CREATE POLICY "Allow authenticated users to read their profile"
+ON public.profile
+FOR SELECT
+USING (auth.uid() = id);
+
+-- Tabla user_courses
+CREATE TABLE public.user_courses (
+  id SERIAL PRIMARY KEY,
+  user_id UUID NOT NULL,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  image TEXT,
+  created_at TIMESTAMP DEFAULT now()
+);
+
+ALTER TABLE public.user_courses ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow authenticated users full access to user_courses"
+ON public.user_courses
+FOR ALL
+USING (auth.role() = 'authenticated')
+WITH CHECK (auth.role() = 'authenticated');
+
+-- Tabla courses
+CREATE TABLE public.courses (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  image TEXT,
+  created_at TIMESTAMP DEFAULT now()
+);
+
+ALTER TABLE public.courses ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public read access to courses"
+ON public.courses
+FOR SELECT
+USING (true);
+
+CREATE POLICY "Restrict modifications to specific user"
+ON public.courses
+FOR ALL
+USING (auth.email() = 'gizquierdorojas@gmail.com')
+WITH CHECK (auth.email() = 'gizquierdorojas@gmail.com');
+
+-- Configuración del sistema de almacenamiento (buckets)
+INSERT INTO storage.buckets (id, name, public) VALUES ('profile', 'profile', false);
+INSERT INTO storage.buckets (id, name, public) VALUES ('courses', 'courses', true);
+INSERT INTO storage.buckets (id, name, public) VALUES ('website', 'website', true);
+
+-- Configuración de permisos para la carpeta 'profile'
+CREATE POLICY "Allow authenticated users to select profile bucket"
+ON storage.objects
+FOR SELECT
+USING (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+CREATE POLICY "Allow authenticated users to insert profile bucket"
+ON storage.objects
+FOR INSERT
+WITH CHECK (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+CREATE POLICY "Allow authenticated users to update profile bucket"
+ON storage.objects
+FOR UPDATE
+USING (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+CREATE POLICY "Allow authenticated users to delete profile bucket"
+ON storage.objects
+FOR DELETE
+USING (auth.role() = 'authenticated' AND bucket_id = 'profile');
+
+-- Configuración de permisos para la carpeta 'courses'
+CREATE POLICY "Allow public read access to courses"
+ON storage.objects
+FOR SELECT
+USING (bucket_id = 'courses');
+
+CREATE POLICY "Restrict insert of courses to specific user"
+ON storage.objects
+FOR INSERT
+WITH CHECK (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'courses');
+
+CREATE POLICY "Restrict update of courses to specific user"
+ON storage.objects
+FOR UPDATE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'courses');
+
+CREATE POLICY "Restrict delete of courses to specific user"
+ON storage.objects
+FOR DELETE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'courses');
+
+-- Configuración de permisos para la carpeta 'website'
+CREATE POLICY "Allow public read access to website"
+ON storage.objects
+FOR SELECT
+USING (bucket_id = 'website');
+
+CREATE POLICY "Restrict insert of website to specific user"
+ON storage.objects
+FOR INSERT
+WITH CHECK (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'website');
+
+CREATE POLICY "Restrict update of website to specific user"
+ON storage.objects
+FOR UPDATE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'website');
+
+CREATE POLICY "Restrict delete of website to specific user"
+ON storage.objects
+FOR DELETE
+USING (auth.email() = 'uksas4586@gmail.com' AND bucket_id = 'website');
+
+-- Creación de subcarpetas dentro de 'website'
+INSERT INTO storage.objects (bucket_id, name) VALUES ('website', 'media/');
+INSERT INTO storage.objects (bucket_id, name) VALUES ('website', 'schema/');
