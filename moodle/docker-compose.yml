@@ -3,7 +3,7 @@ services:
   mariadb:
     image: bitnami/mariadb:latest
     container_name: moodle-db
-    restart: unless-stopped
+    restart: always
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_USER=bn_moodle
@@ -15,7 +15,7 @@ services:
   moodle:
     build: .
     container_name: moodle
-    restart: unless-stopped
+    restart: always
     ports:
       - "8080:8080"
       - "8444:8443"
