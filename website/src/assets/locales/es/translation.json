@@ -343,6 +343,16 @@
                 "state2": "Subiendo..."
             },
             "text": "Utilice este formulario para mantener actualizado el perfil de su cuenta. La dirección de correo electrónico que aparece aquí se utilizará para iniciar sesión en su cuenta y para otros servicios de la misma. Si necesita actualizar su dirección de correo electrónico, comuníquese con el servicio de asistencia."
+        },
+        "tabs": {
+            "L": {
+                "title": "Mis Cursos",
+                "empty": "Nada aquí todavía..."
+            },
+            "R": {
+                "title": "Sala",
+                "moodle": "Aulas"
+            }
         }
     }
 }

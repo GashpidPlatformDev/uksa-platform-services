@@ -2,36 +2,15 @@ import Footer from "components/footer";
 import ProfilePageHeader from "components/headers/profile/profile-header";
 import Navbar from "components/navbar";
 import React, { useState } from "react";
-
-const followsData = [
-  {
-    id: 1,
-    title: "Flume",
-    description: "Musical Producer",
-    image: require("assets/img/bg5.jpg"),
-  },
-  {
-    id: 2,
-    title: "Banks",
-    description: "Singer",
-    image: require("assets/img/bg5.jpg"),
-  },
-  {
-    id: 3,
-    title: "ODESZA",
-    description: "Electronic Duo",
-    image: require("assets/img/bg5.jpg"),
-  },
-  {
-    id: 4,
-    title: "KAYTRANADA",
-    description: "Music Producer",
-    image: require("assets/img/bg5.jpg"),
-  },
-];
+import { useTranslation } from "react-i18next";
 
 function ProfilePage() {
+  const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState("1");
+
+  const handleRedirect = () => {
+    window.open('https://classrooms.uksaidiomas.com', '_blank');
+  }
 
   return (
     <>
@@ -46,13 +25,13 @@ function ProfilePage() {
               className={`nav-text ${activeTab === "1" ? "active" : ""}`}
               onClick={() => setActiveTab("1")}
             >
-              Follows
+              {t("profile.tabs.L.title")}
             </span>
             <span
               className={`nav-text ${activeTab === "2" ? "active" : ""}`}
               onClick={() => setActiveTab("2")}
             >
-              Following
+              {t("profile.tabs.R.title")}
             </span>
           </div>
 
@@ -73,16 +52,14 @@ function ProfilePage() {
         {activeTab === "1" && (
           <div className="cards-container">
             <div className="content">
-            <h3>Nothing here yet...</h3>
-            <p>Start following more people!</p>
+            <h3>{t("profile.tabs.L.empty")}</h3>
           </div>
           </div>
         )}
         {activeTab === "2" && (
-          <button className="auth-button" onClick={() => window.open('https://classrooms.uksaidiomas.com', '_blank')}>
-          Classrooms
+          <button className="auth-button" onClick={handleRedirect}>
+          {t("profile.tabs.R.moodle")}
         </button>
-        
         )}
       </div>
     </div>

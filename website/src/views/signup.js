@@ -6,6 +6,7 @@ import { client } from 'supabase/client';
 import SubPage from 'components/subpage';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { table } from 'components/structures';
 
 function SignUp() {
     const { t } = useTranslation();
@@ -47,7 +48,7 @@ function SignUp() {
           
             while (retries > 0 && !profileExists) {
               const { data: profileData } = await client
-                .from("profile")
+                .from(table)
                 .select("id")
                 .eq("id", userId)
                 .single();
@@ -66,7 +67,7 @@ function SignUp() {
             }
           
             const { error: updateError } = await client
-              .from("profile")
+              .from(table)
               .update({
                 name: firstName,
                 lastname: lastName,

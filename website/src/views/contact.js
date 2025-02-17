@@ -2,7 +2,7 @@ import SubPage from 'components/subpage';
 
 function ContactUs() {
     return (
-        <SubPage mode={''}>
+        <SubPage mode={'contact-container'} >
             <div className="form-container">
             <h2>Llámanos</h2>
             <a href="tel:+573204532331" className="phone-number">+57 3204532331</a>

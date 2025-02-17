@@ -1,25 +1,11 @@
-import { brazilFlag, franceFlag, germanFlag, man1Icon, man2Icon, spainFlag, ukFlag, userProfile, woman1Icon, woman2Icon } from "components/imports/imports";
+import { man1Icon, man2Icon, userProfile, woman1Icon, woman2Icon } from "components/imports/imports";
 import React, { useEffect, useState } from "react";
 import { fetchUserAvatar } from "supabase/storage";
-import ImageUpload from "supabase/imageUpload";
+import AvatarUpload from "components/utils/AvatarUpload";
 import { useTranslation } from "react-i18next";
 import { useTask } from "context/TaskContext";
 import { client } from "supabase/client";
-
-const defaultAvatart = { 
-    "man1": man1Icon, 
-    "man2": man2Icon, 
-    "woman1": woman1Icon, 
-    "woman2": woman2Icon 
-}
-
-const defaultFlag = { 
-    "uk": ukFlag, 
-    "german": germanFlag, 
-    "brazil": brazilFlag, 
-    "france": franceFlag,
-    "default": spainFlag 
-}
+import { defaultAvatart, defaultFlag, table } from "components/structures";
 
 function ProfilePageHeader() {
     const { t } = useTranslation();
@@ -27,6 +13,7 @@ function ProfilePageHeader() {
     const [isOpen, setIsOpen] = useState(false);
     const [lastName, setLastName] = useState('');
     const [password, setPassword] = useState('');
+    
     const [firstName, setFirstName] = useState('');
     const [phoneType, setPhoneType] = useState('');
     const [userName, setUserName] = useState(null);
@@ -95,7 +82,7 @@ function ProfilePageHeader() {
     const handleChange = (setter) => (e) => setter(e.target.value);
 
     const updateDefaultAvatar = async (fileName) => {
-        await client.from("profile").update({ avatar: fileName }).eq("id", userId);
+        await client.from(table).update({ avatar: fileName }).eq("id", userId);
         setAvatarUrl(defaultAvatart[fileName])
     }
 
@@ -119,7 +106,7 @@ function ProfilePageHeader() {
 
             if (data?.data?.user) {
                 const { error: profileError } = await client
-                    .from("profile")
+                    .from(table)
                     .update({
                         name: firstName,
                         lastname: lastName,
@@ -191,55 +178,7 @@ function ProfilePageHeader() {
                 null
                 )}
                 {activeTab === "2" && (
-                <div className="course-form">
-                {/* Sección del retrato del curso */}
-                <div className="course-portrait">
-                    <ImageUpload currentImage={
-                        courseUrl ? courseUrl : spainFlag}
-                        onImageUpload={setCourseId} 
-                        idMatch={courseId}
-                        bucket="courses"
-                        customPath=""
-                    />
-                    <div className="card" style={{width:"40%"}} onClick={() => updateDefaultCoursePortrait("uk")}>
-                        <img src={ukFlag} alt={"..."} className="card-img" />
-                    </div>
-                    <div className="card" style={{width:"40%"}} onClick={() => updateDefaultCoursePortrait("german")}>
-                        <img src={germanFlag} alt={"..."} className="card-img" />
-                    </div>
-                     <div className="card" style={{width:"40%"}} onClick={() => updateDefaultCoursePortrait("brazil")}>
-                        <img src={brazilFlag} alt={"..."} className="card-img" />
-                    </div>
-                    <div className="card" style={{width:"40%"}} onClick={() => updateDefaultCoursePortrait("france")}>
-                        <img src={franceFlag} alt={"..."} className="card-img" />
-                    </div>
-                </div>
-          
-                {/* Sección del título y descripción */}
-                <form onSubmit={handleSubmitCourse}>
-                    <div className="course-info">
-                        <label className="course-label">Course title</label>
-                        <input
-                        type="text"
-                        placeholder="Text area title"
-                        className="course-input"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)} // Actualiza el estado
-                        />
-
-                        <label className="course-label">Course description</label>
-                        <textarea
-                        placeholder="Text area description"
-                        className="course-textarea"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)} // Actualiza el estado
-                        ></textarea>
-
-                        {/* Botón de enviar */}
-                        <button type="submit" className="auth-button">Submit</button>
-                    </div>
-                </form>
-              </div>
+                null
                 )}
             </div>
             <div className={`profile-settings ${isOpen ? "open" : ""}`}>
@@ -316,11 +255,9 @@ function ProfilePageHeader() {
                     </div>
                 </div>
                 <div className="upload-avatar">
-                    <ImageUpload 
-                        currentImage={avatarUrl ? avatarUrl : userProfile} 
-                        onImageUpload={setIsAvatarUpload} 
-                        bucket="profile"
-                        idMatch={userId}
+                    <AvatarUpload 
+                        currentAvatar={avatarUrl ? avatarUrl : userProfile} 
+                        onAvatarUpload={setIsAvatarUpload} 
                     />
                     <div className="card" style={{width:"40%"}} onClick={() => updateDefaultAvatar("man1")}>
                         <img src={man1Icon} alt={"..."} className="card-img" />
