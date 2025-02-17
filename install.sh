@@ -84,6 +84,7 @@ sudo systemctl restart nginx
 git clone --depth 1 https://github.com/supabase/supabase
 cd supabase/docker || exit 1
 cp .env.example .env
+nano .env
 docker compose pull
 docker compose up -d
 cd - || exit 1
