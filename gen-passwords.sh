@@ -1,18 +1,17 @@
 #!/bin/bash
 
-# Function to generate a random password of 32 hexadecimal characters
+# Función para generar una contraseña aleatoria de 32 caracteres hexadecimales
 generatePassword() {
     openssl rand -hex 16
 }
 
-# Function to generate a JWT key
+# Función para generar una clave JWT válida sin jq
 generateJWT() {
     local role="$1"
-    local secret=$(openssl rand -hex 32)  # 64-character random hex secret key
+    local secret=$(openssl rand -hex 32)  # Clave secreta aleatoria de 64 caracteres hexadecimales
 
     local header='{"alg":"HS256","typ":"JWT"}'
-    local payload=$(jq -n --arg role "$role" --arg iss "supabase-demo" --arg iat "$(date +%s)" --arg exp "$(( $(date +%s) + 500000000 ))" \
-    '{role: $role, iss: $iss, iat: ($iat|tonumber), exp: ($exp|tonumber)}')
+    local payload="{\"role\":\"$role\",\"iss\":\"supabase-demo\",\"iat\":$(date +%s),\"exp\":$(( $(date +%s) + 500000000 ))}"
 
     local header_base64=$(echo -n "$header" | openssl base64 -e -A | tr '+/' '-_' | tr -d '=')
     local payload_base64=$(echo -n "$payload" | openssl base64 -e -A | tr '+/' '-_' | tr -d '=')
@@ -22,12 +21,12 @@ generateJWT() {
     echo "$header_base64.$payload_base64.$signature"
 }
 
-# File paths
+# Rutas de los archivos
 ENV_FILE="supabase/docker/.env"
 DOCKER_COMPOSE_FILE="website/docker/docker-compose.yml"
 MOODLE_COMPOSE_FILE="moodle/docker-compose.yml"
 
-# Check if files exist
+# Verificar si los archivos existen
 if [ ! -f "$ENV_FILE" ]; then
     echo "Error: El archivo $ENV_FILE no existe."
     exit 1
@@ -43,7 +42,7 @@ if [ ! -f "$MOODLE_COMPOSE_FILE" ]; then
     exit 1
 fi
 
-# Generate new passwords
+# Generar nuevas contraseñas
 NEW_POSTGRES_PASSWORD=$(generatePassword)
 NEW_JWT_SECRET=$(generatePassword)
 NEW_DASHBOARD_PASSWORD=$(generatePassword)
@@ -54,7 +53,7 @@ NEW_SERVICE_ROLE_KEY=$(generateJWT "service_role")
 NEW_MOODLE_DB_PASSWORD=$(generatePassword)
 NEW_MOODLE_PASSWORD=$(generatePassword)
 
-# Replace passwords in the file supabase/docker/.env
+# Reemplazar contraseñas en el archivo .env
 sed -i "s|POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$NEW_POSTGRES_PASSWORD|" "$ENV_FILE"
 sed -i "s|JWT_SECRET=.*|JWT_SECRET=$NEW_JWT_SECRET|" "$ENV_FILE"
 sed -i "s|DASHBOARD_PASSWORD=.*|DASHBOARD_PASSWORD=$NEW_DASHBOARD_PASSWORD|" "$ENV_FILE"
@@ -63,10 +62,10 @@ sed -i "s|VAULT_ENC_KEY=.*|VAULT_ENC_KEY=$NEW_VAULT_ENC_KEY|" "$ENV_FILE"
 sed -i "s|ANON_KEY=.*|ANON_KEY=$NEW_ANON_KEY|" "$ENV_FILE"
 sed -i "s|SERVICE_ROLE_KEY=.*|SERVICE_ROLE_KEY=$NEW_SERVICE_ROLE_KEY|" "$ENV_FILE"
 
-# Replace ANON_KEY in website/docker/docker-compose.yml
+# Reemplazar ANON_KEY en docker-compose.yml
 sed -i "s|REACT_APP_SUPABASE_ANON_KEY=.*|REACT_APP_SUPABASE_ANON_KEY=$NEW_ANON_KEY|" "$DOCKER_COMPOSE_FILE"
 
-# Replace passwords in moodle/docker-compose.yml
+# Reemplazar contraseñas en moodle/docker-compose.yml
 sed -i "s|MOODLE_DATABASE_PASSWORD=.*|MOODLE_DATABASE_PASSWORD=$NEW_MOODLE_DB_PASSWORD|" "$MOODLE_COMPOSE_FILE"
 sed -i "s|MARIADB_PASSWORD=.*|MARIADB_PASSWORD=$NEW_MOODLE_DB_PASSWORD|" "$MOODLE_COMPOSE_FILE"
 sed -i "s|MOODLE_PASSWORD=.*|MOODLE_PASSWORD=$NEW_MOODLE_PASSWORD|" "$MOODLE_COMPOSE_FILE"
