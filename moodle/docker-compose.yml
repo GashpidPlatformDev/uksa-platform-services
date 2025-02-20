@@ -5,8 +5,9 @@ services:
     container_name: moodle-db
     restart: always
     environment:
+      - MARIADB_ROOT_PASSWORD=db_root_password
       - MARIADB_USER=bn_moodle
-      - MARIADB_PASSWORD=bitnami
+      - MARIADB_PASSWORD=db_password
       - MARIADB_DATABASE=bitnami_moodle
     volumes:
       - ./moodle_db:/var/lib/mysql
@@ -19,8 +20,9 @@ services:
       - "8080:8080"
       - "8444:8443"
     environment:
+      - MOODLE_DATABASE_HOST=mariadb
       - MOODLE_DATABASE_USER=bn_moodle
-      - MOODLE_DATABASE_PASSWORD=bitnami
+      - MOODLE_DATABASE_PASSWORD=db_password
       - MOODLE_DATABASE_NAME=bitnami_moodle
       - MOODLE_USERNAME=admin
       - MOODLE_PASSWORD=admin
