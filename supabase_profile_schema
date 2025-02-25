@@ -37,9 +37,25 @@ DELETE FROM auth.users;
 DROP TRIGGER IF EXISTS create_profile_on_signup ON auth.users;
 DROP POLICY IF EXISTS update_own_profile ON public.profile;
 DROP FUNCTION IF EXISTS create_profile_for_new_user() CASCADE;
+DROP FUNCTION IF EXISTS move_pending_profile() CASCADE;
 DROP TABLE IF EXISTS public.profile CASCADE;
+DROP TABLE IF EXISTS public.pending_profiles CASCADE;
 DROP TABLE IF EXISTS public.user_courses CASCADE;
 DROP TABLE IF EXISTS public.courses CASCADE;
+
+-- Tabla temporal para almacenar perfiles no confirmados
+CREATE TABLE public.pending_profiles (
+  id UUID PRIMARY KEY,
+  email TEXT NOT NULL,
+  name TEXT,
+  lastname TEXT,
+  phonetype BOOLEAN,
+  phone NUMERIC,
+  areacode NUMERIC,
+  avatar TEXT,
+  rol BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT now()
+);
 
 CREATE TABLE public.profile (
   id UUID PRIMARY KEY REFERENCES auth.users(id),
@@ -54,24 +70,29 @@ CREATE TABLE public.profile (
   created_at TIMESTAMP DEFAULT now()
 );
 
-CREATE FUNCTION create_profile_for_new_user()
+-- Función para mover datos desde pending_profiles a profile cuando el usuario verifica su email
+CREATE FUNCTION move_pending_profile()
 RETURNS TRIGGER 
 LANGUAGE plpgsql 
 SECURITY DEFINER 
 SET search_path = ''
 AS $$
 BEGIN
-  INSERT INTO public.profile (id, email)
-  VALUES (NEW.id, NEW.email)
-  ON CONFLICT (id) DO NOTHING;
+  IF NEW.email_confirmed_at IS NOT NULL THEN
+    INSERT INTO public.profile (id, email, name, lastname, phonetype, phone, areacode, avatar, rol, created_at)
+    SELECT id, email, name, lastname, phonetype, phone, areacode, avatar, rol, created_at FROM public.pending_profiles
+    WHERE id = NEW.id
+    ON CONFLICT (id) DO NOTHING;
+    DELETE FROM public.pending_profiles WHERE id = NEW.id;
+  END IF;
   RETURN NEW;
 END;
 $$;
 
-CREATE TRIGGER create_profile_on_signup
-AFTER INSERT ON auth.users
+CREATE TRIGGER move_pending_profile_trigger
+AFTER UPDATE ON auth.users
 FOR EACH ROW
-EXECUTE FUNCTION create_profile_for_new_user();
+EXECUTE FUNCTION move_pending_profile();
 
 ALTER TABLE public.profile ENABLE ROW LEVEL SECURITY;
 
