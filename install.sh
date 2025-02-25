@@ -78,13 +78,27 @@ sudo nginx -t
 sudo systemctl restart nginx
 
 
+#################
+# Clone supabase
+#################
+git clone --depth 1 https://github.com/supabase/supabase
+
+
+#############################
+# Copy supabase env file and
+# generate keys for supabase
+# moodle and website files
+#############################
+cp supabase/docker/.env.example supabase/docker/.env
+chmod +x gen-passwords.sh
+./gen-passwords.sh
+
+
 #############################
 # Build and install supabase
 #############################
-git clone --depth 1 https://github.com/supabase/supabase
 cd supabase/docker || exit 1
-cp .env.example .env
-nano .env
+sudo nano .env
 docker compose pull
 docker compose up -d
 cd - || exit 1
@@ -94,6 +108,7 @@ cd - || exit 1
 # Install Moodle
 #################
 cd moodle || exit 1
+sudo nano docker-compose.yml
 docker-compose build
 docker-compose up -d
 cd - || exit 1
@@ -103,5 +118,6 @@ cd - || exit 1
 # Install react-app
 ####################
 cd website/docker || exit 1
+sudo nano docker-compose.yml
 docker-compose up --build -d
 cd - || exit 1
