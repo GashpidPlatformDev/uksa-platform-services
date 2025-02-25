@@ -68,9 +68,11 @@ nano /etc/nginx/ssl/certificate.key
 ########################################
 sudo rm /etc/nginx/sites-enabled/default
 cp moodle.conf /etc/nginx/sites-available/moodle
+cp backend.conf /etc/nginx/sites-available/backend
 cp supabase.conf /etc/nginx/sites-available/supabase
 cp react-app.conf /etc/nginx/sites-available/react-app
 sudo ln -s /etc/nginx/sites-available/moodle /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/backend /etc/nginx/sites-enabled/
 sudo ln -s /etc/nginx/sites-available/supabase /etc/nginx/sites-enabled/
 sudo ln -s /etc/nginx/sites-available/react-app /etc/nginx/sites-enabled/
 
@@ -118,6 +120,15 @@ cd - || exit 1
 # Install react-app
 ####################
 cd website/docker || exit 1
+sudo nano docker-compose.yml
+docker-compose up --build -d
+cd - || exit 1
+
+
+######################
+# Install email resend
+######################
+cd backend/docker || exit 1
 sudo nano docker-compose.yml
 docker-compose up --build -d
 cd - || exit 1
