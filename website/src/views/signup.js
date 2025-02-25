@@ -1,94 +1,78 @@
 import { navbarIcon } from 'components/imports/imports';
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { useTask } from 'context/TaskContext';
-import { client } from 'supabase/client';
+import { client } from 'schema/client';
 import SubPage from 'components/subpage';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { table } from 'components/structures';
 
 function SignUp() {
     const { t } = useTranslation();
-    const navigate = useNavigate();
-    const {updateProfile} = useTask();
     const [email, setEmail] = useState('');
     const [lastName, setLastName] = useState('');
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
-    const [phoneType, setPhoneType] = useState('');
+    const [areaCode, setAreaCode] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [windowMode, setWindowMode] = useState(false);
     const [repeatPassword, setRepeatPassword] = useState('');
     const [passwordMismatch, setPasswordMismatch] = useState(false);
 
     const handleChange = (setter) => (e) => setter(e.target.value);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-        if (password !== repeatPassword) {
-            setPassword('');
-            setRepeatPassword('');
-            setPasswordMismatch(true);
-            return;
-        }
+    const handleNumericChange = (setter) => (e) => {
+      const value = e.target.value.replace(/\D/g, '');
+      setter(value);
+    };
+    
 
-        const { data, error } = await client.auth.signUp({
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+        
+      if (password !== repeatPassword) {
+        setPassword('');
+        setRepeatPassword('');
+        setPasswordMismatch(true);
+        return;
+      }
+
+      const { data, error } = await client
+      .auth.signUp({
+        email: email,
+        password: password
+      });
+
+      console.log("auth: ",data,error)
+
+      if (!error && data?.user) {
+        const userId = data.user.id;
+        console.log("test: ", userId)
+        await client.from("pending_profiles").insert([
+          {
+            id: userId,
             email: email,
-            password: password
-          });
-          
-          if (error) {
-            console.error("Error en el registro:", error.message);
-          } else if (data?.user) {
-            const userId = data.user.id;
-          
-            let retries = 5;
-            let profileExists = false;
-          
-            while (retries > 0 && !profileExists) {
-              const { data: profileData } = await client
-                .from(table)
-                .select("id")
-                .eq("id", userId)
-                .single();
-          
-              if (profileData) {
-                profileExists = true;
-                break;
-              }
-              await new Promise((resolve) => setTimeout(resolve, 500));
-              retries--;
-            }
-          
-            if (!profileExists) {
-              console.error("Error: el perfil no se insertó a tiempo.");
-              return;
-            }
-          
-            const { error: updateError } = await client
-              .from(table)
-              .update({
-                name: firstName,
-                lastname: lastName,
-                phonetype: phoneType === "op1" ? true : false,
-                phone: phoneNumber,
-                areacode: 57
-              })
-              .eq("id", userId);
-          
-            if (updateError) {
-              console.error("Error al actualizar el perfil:", updateError.message);
-            } else {
-              updateProfile();
-              navigate(t("signup.btn.path"));
-            }
-          }
+            name: firstName,
+            phone: phoneNumber,
+            lastname: lastName,
+            areacode: areaCode,
+          },
+        ]);
+
+        console.log("update: ")
+        setWindowMode(true);
+      }
     };
 
     return (
         <SubPage mode={'login'}>
             <div className="auth-container">
+              {windowMode ?
+                <>
+                <h2>{t("signup.context.title")}</h2>
+                <p style={{textAlign: "justify"}}>{t("signup.context.text")}</p>
+                <Link to={t("signup.context.btn.path")} className="auth-forgot-password">{t("signup.context.btn.title")}</Link>
+                </>
+                :
+                <>
                 <img src={navbarIcon} alt="auth-Icon" className="auth-logo" />
                 <h2 className='auth-title'>{t("signup.title")}</h2>
                 <form className='login-form' onSubmit={handleSubmit}>
@@ -120,19 +104,23 @@ function SignUp() {
                     />
 
                     <div className='auth-phone-container'>
-                        <select value={phoneType} onChange={handleChange(setPhoneType)} required>
-                            <option value="">{t("signup.phone.type.default")}</option>
-                            <option value="op1">{t("signup.phone.type.op1")}</option>
-                            <option value="op2">{t("signup.phone.type.op2")}</option>
-                        </select>
-                        <input 
-                            className='auth-input-phone' 
-                            type="text" 
-                            placeholder={t("signup.phone.title")} 
-                            value={phoneNumber} 
-                            onChange={handleChange(setPhoneNumber)} 
-                            required 
-                        />
+                      <input
+                        className='auth-input-phone-code' 
+                        type="text" 
+                        placeholder={t("signup.phone.areacode")} 
+                        value={areaCode} 
+                        onChange={handleNumericChange(setAreaCode)} 
+                        required 
+                      />
+
+                      <input 
+                        className='auth-input-phone' 
+                        type="text" 
+                        placeholder={t("signup.phone.title")} 
+                        value={phoneNumber} 
+                        onChange={handleNumericChange(setPhoneNumber)} 
+                        required 
+                      />
                     </div>
                     
                     <input 
@@ -154,8 +142,10 @@ function SignUp() {
                     />
 
                     <Link to={t("signup.back.path")} className="auth-forgot-password">{t("signup.back.title")}</Link>
-                    <button type="submit" className="auth-button">{t("signup.btn.title")}</button>
+                    <button type="submit" className="auth-button">{t("signup.btn")}</button>
                 </form>
+                </>
+              }
             </div>
         </SubPage>
     );

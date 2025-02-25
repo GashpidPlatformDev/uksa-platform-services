@@ -1,8 +1,16 @@
 import RCardMod from "./rcard";
 
-const RCard = ({ imageUrl, title, buttonText, to }) => {
+const RCard = ({ imageUrl, title, buttonText, bottomText, bottomName, bottomJob, to }) => {
     return(
-        <RCardMod imageUrl={imageUrl} title={title} buttonText={buttonText} to={to} />        
+        <RCardMod 
+            buttonText={buttonText} 
+            bottomText={bottomText} 
+            bottomName={bottomName} 
+            bottomJob={bottomJob} 
+            imageUrl={imageUrl} 
+            title={title} 
+            to={to} 
+        />        
     )
 }
 

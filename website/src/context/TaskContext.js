@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { client } from "supabase/client";
+import { client } from "schema/client";
 
 export const TaskContext = createContext()
 
@@ -17,16 +17,43 @@ export const TaskContextProvider = ({children}) => {
     const [courseUrl, setCourseUrl] = useState(null);
 
     async function updateProfile() {
-        const { data: { user } } = await client.auth.getUser()
-        await client
-        .from('profile')
-        .select('*')
-        .eq('id', user?.id)
-        .then((data, error) => {
-            if(!error) setProfile(data)
-        })
+        try {
+            const { data: { user } } = await client.auth.getUser()
+            await client
+            .from('profile')
+            .select('*')
+            .eq('id', user?.id)
+            .then((data, error) => {
+                if(!error) setProfile(data)
+            })
+        }
+        catch {}
+        
     }
-    return <TaskContext.Provider value={{userId, profile, avatarUrl, courseUrl, courseId, setCourseId, setCourseUrl, updateProfile, setUserId, setAvatarUrl}}>
+
+    async function logOut() {
+        setCourseUrl(null);    
+        setAvatarUrl(null);
+        setCourseId(null);
+        setProfile(null);
+        setUserId(null);
+    }
+
+    return <TaskContext.Provider value={
+        {
+            userId, 
+            profile, 
+            courseId,
+            avatarUrl, 
+            courseUrl, 
+            updateProfile,
+            setCourseUrl,
+            setAvatarUrl,
+            setCourseId,
+            setUserId,
+            logOut,
+        }
+    }>
         {children}
     </TaskContext.Provider>
 }

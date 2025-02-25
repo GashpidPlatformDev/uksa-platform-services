@@ -1,7 +1,7 @@
-import { BrowserRouter, Route, Navigate, Routes, useLocation, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
 import { TaskContextProvider, useTask } from "context/TaskContext";
 import React, { useEffect } from "react";
-import { client } from "supabase/client";
+import { client } from "schema/client";
 import ReactDOM from "react-dom/client";
 import ContactUs from "views/contact";
 import SignUp from "views/signup";
@@ -33,14 +33,13 @@ const MainApp = () => {
     return () => {
       authListener?.subscription?.unsubscribe();
     };
-  }, [updateProfile]);
+  }, [updateProfile, setUserId]);
 
   return (
     <BrowserRouter>
-      <HideRoutes />
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/auth" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/profile" element={<ProfilePage />} />
@@ -50,20 +49,51 @@ const MainApp = () => {
   );
 };
 
-const HideRoutes = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (location.pathname !== "/") {
-      setTimeout(() => {
-        window.history.replaceState(null, "", window.location.origin);
-      }, 100); // Retraso breve para evitar parpadeo
-    }
-  }, [location]);
-
-  return null;
-};
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.resend.com",
+  port: 465,
+  secure: true, // true for port 465, false for other ports
+  auth: {
+    user: "resend",
+    pass: "re_HzDgH8JV_4SFkaaZ1LyhHSfU5pNmtPcnh",
+  },
+});
+
+// async..await is not allowed in global scope, must use a wrapper
+async function main() {
+  // send mail with defined transport object
+  const info = await transporter.sendMail({
+    from: '"Maddison Foo Koch 👻" <support@uksaidiomas.com>', // sender address
+    to: "gizquierdorojas@gmail.com", // list of receivers
+    subject: "Hello ✔", // Subject line
+    text: "Hello world?", // plain text body
+    html: "<b>Hello world?</b>", // html body
+  });
+
+  console.log("Message sent: %s", info.messageId);
+  // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+}
+
+main().catch(console.error);*/
+
+
+

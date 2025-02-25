@@ -10,12 +10,20 @@ services:
     ports:
       - "8081:80"
     environment:
-      - REACT_APP_SUPABASE_URL=https://api.uksaidiomas.com
+      - REACT_APP_SUPABASE_URL=
       - REACT_APP_SUPABASE_ANON_KEY=
-      - REACT_APP_USER_TABLE=profile
-      - REACT_APP_USER_BUCKET=profile
-      - REACT_APP_USER_COURSES=user_courses
-      - REACT_APP_WEB_BUCKET=website
+      - REACT_APP_SALESMAN_TEXT=
+      - REACT_APP_QUOTE_TITLE=
+      - REACT_APP_SALESMAN=
+      - REACT_APP_API_URL=
+      - REACT_APP_TEMP_USER=
+      - REACT_APP_USER_COURSES=
+      - REACT_APP_API_KEY=
+      - REACT_APP_EMAIL_SENDER=
+      - REACT_APP_WEBMAIL_USR=
+      - REACT_APP_USER_BUCKET=
+      - REACT_APP_USER_TABLE=
+      - REACT_APP_WEB_BUCKET=
     networks:
       - web-network
 networks:

@@ -307,6 +307,10 @@
 /* start mobile version */
 @media (max-width: 1024px) {
     .cover-section {
+        background-image: url('assets/media/vectors/wave-section.svg');
+        background-position: left bottom;
+        background-repeat: no-repeat;
+        background-size: 180% auto;
         min-height: 100vh;
         height: auto;
     }

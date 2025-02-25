@@ -32,6 +32,15 @@ import ukFlag from 'assets/media/vectors/uk_flag.svg';
 import man1Icon from 'assets/media/vectors/man1.svg';
 import man2Icon from 'assets/media/vectors/man2.svg';
 import xIcon from 'assets/media/vectors/x-icon.svg';
+import englishPortrait from 'assets/media/images/english-portrait.png';
+import frenshPortrait from 'assets/media/images/french-portrait.png';
+import portuguesPortrait from 'assets/media/images/portugues-portrait.png';
+import deutschPortrait from 'assets/media/images/deutsch-portrait.png';
+import italianPortrait from 'assets/media/images/italian-portrait.png';
+import spanishPortrait from 'assets/media/images/spanish-portrait.png';
+import witness1 from 'assets/media/images/witness1.jpg';
+import witness2 from 'assets/media/images/witness2.jpg';
+import witness3 from 'assets/media/images/witness3.jpg';
 
 export {
     xIcon,
@@ -69,3 +78,18 @@ export {
     portraitImage,
     portraitVector
 };
+
+export const languagesPortrait = [
+    englishPortrait, 
+    frenshPortrait, 
+    portuguesPortrait, 
+    deutschPortrait, 
+    italianPortrait, 
+    spanishPortrait
+];
+
+export const witnessImages = [
+    witness1,
+    witness2,
+    witness3
+];

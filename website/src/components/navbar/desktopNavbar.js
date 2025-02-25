@@ -23,10 +23,13 @@ const DesktopNavbar = ({ currentLang, setCurrentLang }) => {
   const isDropdownMenus = [isDropdown_menu_1, isDropdown_menu_2, isDropdown_menu_3]
 
   useEffect(() => {
-    if(profile?.data[0]?.name) {
-      const name = profile?.data[0]?.name.split(" ");
-      setUserName(name);
+    try {
+      if(profile?.data[0]?.name) {
+        const name = profile?.data[0]?.name.split(" ");
+        setUserName(name);
+      }
     }
+    catch {}
   },[profile])
 
   const langs = [

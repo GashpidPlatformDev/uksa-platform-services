@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { client } from '../../supabase/client';
+import { client } from '../../schema/client';
 import { useTask } from 'context/TaskContext';
 import { table, user_bucket } from 'components/structures';
 

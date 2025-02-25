@@ -5,6 +5,31 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 500px;
     text-align: center;
+    position: relative;
+}
+
+.form-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.form-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 h2, h3 {
@@ -36,6 +61,7 @@ p a {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
+    gap: 3px;
 }
 
 .form-group input, 
@@ -80,4 +106,41 @@ textarea {
 
 .submit-button:hover {
     background: #005a9e;
+}
+
+.contact-comments {
+    width: 95%;
+}
+
+
+/* especial styles on footer */
+.toggle-comments-btn {
+    background-color: #c1c1c18d;
+    margin-bottom: 15px;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.toggle-comments-btn:hover {
+    background-color: #c1c1c1a5;
+}
+
+.comments-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.comments-container.visible {
+    max-height: 150px;
+    opacity: 1;
+    margin-top: 10px;
 }

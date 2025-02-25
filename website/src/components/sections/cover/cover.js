@@ -37,6 +37,7 @@ const CoverSection = () => {
                 </div>
 
                 <div className="cover-header-ribbon">
+                    
                     {Object.entries(cover.ribbon.header).map(([key, value], index) => (
                         <Link key={key} to={value.path} className={index === 0 ? "cover-rounded-button": "cover-world-button"}>
                             {index === 1 ? <img src={worldIcon} alt="cover-world-icon" className="cover-world" /> : ""}

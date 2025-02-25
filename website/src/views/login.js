@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useTask } from 'context/TaskContext';
 import SubPage from 'components/subpage';
-import { client } from 'supabase/client';
+import { client } from 'schema/client';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 

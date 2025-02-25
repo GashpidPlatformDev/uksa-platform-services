@@ -148,17 +148,18 @@ input.auth-input {
     gap: 5%;
 }
 
-.auth-phone-container select {
-    width: 35%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
 .auth-input-phone{
     width: 45%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;    
+}
+
+.auth-input-phone-code {
+    width: 30%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;  
 }

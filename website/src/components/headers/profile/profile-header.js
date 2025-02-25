@@ -1,10 +1,10 @@
 import { man1Icon, man2Icon, userProfile, woman1Icon, woman2Icon } from "components/imports/imports";
 import React, { useEffect, useState } from "react";
-import { fetchUserAvatar } from "supabase/storage";
+import { fetchUserAvatar } from "schema/storage";
 import AvatarUpload from "components/utils/AvatarUpload";
 import { useTranslation } from "react-i18next";
 import { useTask } from "context/TaskContext";
-import { client } from "supabase/client";
+import { client } from "schema/client";
 import { defaultAvatart, defaultFlag, table } from "components/structures";
 
 function ProfilePageHeader() {

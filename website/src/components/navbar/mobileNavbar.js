@@ -16,10 +16,13 @@ const MobileNavbar = ({ setCurrentLang }) => {
   const [expandedSubMenus, setExpandedSubMenus] = useState([false, false, false]);
 
   useEffect(() => {
+    try {
       if(profile?.data[0]?.name) {
         const name = profile?.data[0]?.name.split(" ");
         setUserName(name);
       }
+    }
+    catch {}
     },[profile])
   
   const langs = [

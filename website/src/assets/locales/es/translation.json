@@ -22,20 +22,11 @@
                     }
                 }
             },
-            "menu-2": {
-                "title": "Exámenes",
-                "items": {
-                    "item-1": {
-                        "title": "Examen de clasificacion",
-                        "path": "/"
-                    }
-                }
-            },
             "menu-3": {
-                "title": "Servicios",
+                "title": "Otros servicios",
                 "items": {
                     "item-1": {
-                        "title": "Preparación para exámenes internacionales",
+                        "title": "Exámenes internacionales",
                         "path": "/"
                     },
                     "item-2": {
@@ -59,7 +50,7 @@
         },
         "single-menu-3": {
             "title": "Acceder",
-            "path": "/login"
+            "path": "/auth"
         },
         "doropdownmenu": {
             "dashboard": {
@@ -89,16 +80,12 @@
             },
             "bottom": "EN IDIOMAS"
         },
-        "subtitle": "Avanza con tu equipo al siguiente nivel con nuestros cursos de inglés, y déjanos ayudarte en tu proceso de certificación",
+        "subtitle": "Avanza al siguiente nivel con nuestros cursos de idiomas y déjanos ayudarte con tu con tu proceso de certificación.",
         "ribbon": {
             "header": {
                 "item-1": {
                 "title": "Adquirir curso",
                 "path": "/"
-                },
-                "item-2": {
-                    "title": "Ciudades",
-                    "path": "/"
                 }
             },
             "middle": {
@@ -140,37 +127,31 @@
         },
         "cards": {
             "item-1": {
-                "image": "",
                 "title": "Inglés",
                 "button": "Conoce más",
                 "path": "/"
             },
             "item-2": {
-                "image": "",
                 "title": "Francés",
                 "button": "Conoce más",
                 "path": "/"
             },
             "item-3": {
-                "image": "",
                 "title": "Portugués",
                 "button": "Conoce más",
                 "path": "/"
             },
             "item-4": {
-                "image": "",
                 "title": "Alemán",
                 "button": "Conoce más",
                 "path": "/"
             },
             "item-5": {
-                "image": "",
                 "title": "Italiano",
                 "button": "Conoce más",
                 "path": "/"
             },
             "item-6": {
-                "image": "",
                 "title": "Español para extranjeros",
                 "button": "Conoce más",
                 "path": "/"
@@ -178,96 +159,11 @@
         }
     },
     "footer": {
-        "logo-desc": "Inglés para empresas y entrenamiento para exámenes internacionales",
+        "logo-desc": "Cursos personalizados, grupales y empresariales.",
         "menus": {
-            "menu-1": {
-                "title": "Recursos de aprendizaje",
-                "items": {
-                    "item-1": {
-                        "title": "Guías de estudio",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Material descargable",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "Videos educativos",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Ejercicios interactivos",
-                        "path": "/"
-                    }
-                }
-            },
-            "menu-2": {
-                "title": "Programas y cursos",
-                "items": {
-                    "item-1": {
-                        "title": "Inglés para empresas",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Cursos intensivos de idiomas",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "Preparación de exámenes internacionales",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Programas para principiantes",
-                        "path": "/"
-                    }
-                }
-            },
-            "menu-3": {
-                "title": "Sobre Nosotros",
-                "items": {
-                    "item-1": {
-                        "title": "Nuestra historia",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Conoce a nuestros profesores",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "Metodología de enseñanza",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Testimonios de estudiantes",
-                        "path": "/"
-                    },
-                    "item-5": {
-                        "title": "Preguntas frecuentes",
-                        "path": "/"
-                    }
-                }
-            },
-            "menu-4": {
-                "title": "Contáctanos",
-                "items": {
-                    "item-1": {
-                        "title": "Centro de ayuda",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Solicita información",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "Agenda una asesoría",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Ubicación de nuestras oficinas",
-                        "path": "/"
-                    }
-                }
-            }
+            "menu1": "PIDE UNA COTIZACIÓN",
+            "menu2": "SÍGUENOS EN REDES SOCIALES",
+            "menu3": "Nuestra línea de atención"
         },
         "policies": {
             "item-1": {
@@ -314,11 +210,7 @@
         "email": "Email *",
         "phone": {
             "title": "Número *",
-            "type": {
-                "default": "Teléfono",
-                "op1": "Celular",
-                "op2": "Fíjo"
-            }
+            "areacode": "Código de país *"
         },
         "pswd": {
             "placeholder": "Ingresa tu contraseña",
@@ -327,11 +219,16 @@
         "rpswd": "Repite tu contraseña",
         "back": {
             "title": "Ya tengo una cuenta",
-            "path": "/login"
+            "path": "/auth"
         },
-        "btn": {
-            "title": "Registrar",
-            "path": "/dashboard"
+        "btn": "Registrar",
+        "context": {
+            "title": "Verifica tu cuenta",
+            "text": "Hemos enviado un correo de verificación a tu dirección de email. Por favor, revisa tu bandeja de entrada y sigue las instrucciones para activar tu cuenta. Si no encuentras el correo, revisa también tu carpeta de spam o correo no deseado. Si sigues sin verlo, intenta reenviar la verificación o contáctanos para ayudarte. Gracias por registrarte. ¡Esperamos verte pronto!",
+            "btn": {
+                "title": "Retroceder al inicio de sesión",
+                "path": "/auth"
+            }
         }
     },
     "profile": {
@@ -352,6 +249,76 @@
             "R": {
                 "title": "Sala",
                 "moodle": "Aulas"
+            }
+        }
+    },
+    "contact": {
+        "title": "Llámanos",
+        "phonelink": "tel:+573204532331",
+        "phone": "+57 3204532331",
+        "subtitle": "Conoce más",
+        "toptext": "Te contactaremos para enviarte más información.",
+        "bottomtext": {
+            "part1": "Al dar clic en 'ENVIAR' estás aceptando nuestra",
+            "part2": "Política de tratamiento de datos",
+            "part3": "y",
+            "part4": "Aviso de Privacidad"
+        },
+        "name": "Nombre *",
+        "lastname":"Apellido *",
+        "email": "Email *",
+        "phonetype": {
+            "title": "Tipo de teléfono *",
+            "op1": "Celular",
+            "op2": "Fijo"
+        },
+        "phonenumber": "Número de teléfono *",
+        "quote": {
+            "title": "¿Solicitud en nombre de una empresa? *",
+            "op1": "Si",
+            "op2": "No"
+        },
+        "learningmethod": {
+            "title": "Metodo de aprendizaje preferido *",
+            "op1": "Virtual",
+            "op2": "Presencial"
+        },
+        "whowilltakecourse": {
+            "title": "¿Quíen tomará el curso? *",
+            "op1": "Yo",
+            "op2": "Otra persona"
+        },
+        "location": "Cuidad donde te ubicas *",
+        "language": "Idiomas *",
+        "comments": "Dejanos tus comentarios",
+        "checkbox": {
+            "part1": "Quiero recibir información y ofertas especiales de",
+            "part2": "experto en idiomas por email y puedo retirar mi permiso en cualquier momento."
+        },
+        "btn": "Enviar",
+        "sent": "Enviado",
+        "footerbtn": {
+            "state1": "Mostrar campo de comentarios",
+            "state2": "Ocultar campo de comentarios"
+        }
+    },
+    "witness": {
+        "title": "Testimonios",
+        "items": {
+            "item-1": {
+                "text": "En mi vida siempre luché con el aprendizaje de un nuevo idioma como lo es el inglés, por falta de tiempo, metodologías clásicas que a mi parecer eran aburridas y poco eficientes, horarios estrictos y otras muchas cosas que alejaban mi interés en aprenderlo; pero luego, conocí la metodología del equipo UKSA, y empecé a controlar mi tiempo, a incorporar el inglés en mi rutina y a divertirme aprendiendo con un equipo lleno de carisma. Recomiendo sin dudas la metodología del equipo UKSA.",
+                "name": "Jesús Galvis",
+                "job": "Coordinador de Aseguramiento y Director Técnico Dirección Calidad Unique-Yanbal Colombia"
+            },
+            "item-2": {
+                "text": "Mi experiencia estudiando con UKSA ha sido muy gratificante, son personas muy profesionales con un robusto plan de estudios para trabajar en todas las habilidades requeridas en una segunda lengua en mi caso inglés. Te aportan excelentes herramientas, cuenta con profesionales altamente capaces y responsables que te dan el adecuado acompañamiento durante todo el proceso. Pude evidenciar importantes avances en mi aprendizaje, también gané seguridad y confianza para comunicarme Recomiendo su metodología que se ajusta a las necesidades particulares del cliente.",
+                "name": "Alejandra Martínez",
+                "job": "Head of Colombia Region International Regulatory Sciences and Policy-Pfizer"
+            },
+            "item-3": {
+                "text": "Durante mucho tiempo pensé que a cierta edad era muy difícil aprender o perfecccionar un nuevo idioma, luego cuando tuve la oportunidad de conocer y experimentar la estrategia pedagógica utilizada por UKSA entendí que son los métodos de aprendizaje y los profesionales los que te llevan a que este proceso en mi caso de aprender inglés, sea amigable, exitoso y divertido. Sin duda recomendaría UKSA a aquellas personas que quieran aprender un nuevo idioma de cero o que quieran superar retos profesionales de la mano de un excelente equipo.",
+                "name": "Ana Pino",
+                "job": "Commercial executive-Microsoft"
             }
         }
     }

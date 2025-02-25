@@ -1,0 +1,47 @@
+.parent {
+  align-items: center;
+  display: grid;
+  height: 60vh;
+}
+
+.slider {
+  border-radius:10px;
+  overflow:"hidden";
+  margin: 0 20px;
+}
+
+.slider .content {
+  background-color: #d5d5d5e2;
+  padding: 10px 10px 10px 10px;
+  align-items: center;
+
+  border-radius: 10px;
+  width: 100%;
+}
+
+.slider .text {
+  text-align: justify;
+  color: #021B2B;
+}
+  
+.react-multi-carousel-list {
+  padding: 0rem 0 2rem 0;
+}
+  
+.custom-dot-list-style button{
+  background: rgb(97, 97, 97);
+  border: none;
+}
+.react-multi-carousel-dot.react-multi-carousel-dot--active button{
+  background: rgb(193, 193, 193) !important;
+}
+
+.react-multi-carousel-item {
+  flex: 0 0 10% !important; /* Ancho fijo del 60% */
+  max-width: 10% !important;
+}
+
+.react-multi-carousel-track {
+  display: flex;
+  justify-content: center; /* Centra las tarjetas en el carrusel */
+}

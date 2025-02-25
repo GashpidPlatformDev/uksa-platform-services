@@ -201,3 +201,7 @@
   white-space: nowrap;  
   padding: 10px;
 }
+
+.hidden {
+  display: none;
+}
