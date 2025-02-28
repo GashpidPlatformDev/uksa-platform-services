@@ -87,11 +87,7 @@ const DesktopFooter = () => {
                           </div>
 
                           <div className="form-group">
-                              <select name="phoneType" required onChange={handleChange}>
-                                  <option value="">{t("contact.phonetype.title")}</option>
-                                  <option value={t("contact.phonetype.op1")}>{t("contact.phonetype.op1")}</option>
-                                  <option value={t("contact.phonetype.op2")}>{t("contact.phonetype.op2")}</option>
-                              </select>
+                              <input type="text" name="phonetype" placeholder={t("signup.phone.areacode")} required onChange={handleChange} />
                               <input type="text" name="phoneNumber" placeholder={t("contact.phonenumber")} required onChange={handleChange} />
                               <select name="companyRequest" required onChange={handleChange}>
                                   <option value="">{t("contact.quote.title")}</option>
@@ -155,7 +151,7 @@ const DesktopFooter = () => {
               <h5 className="footer-title">{t("footer.menus.menu2")}</h5>
               <ul className="footer-list">
                   <li>
-                    <Link className="footer-link">
+                    <div className="footer-link">
                     <Col md="6" className="footer-social">
                       <a href="/" className="social-icon">
                         <img src={igIcon} alt="Navbar-Icon" style={{height: "40px"}} />
@@ -170,16 +166,16 @@ const DesktopFooter = () => {
                         <img src={ytIcon} alt="yt-icon" style={{height: "40px"}} />
                       </a>
                     </Col>
-                    </Link>
+                    </div>
                   </li>
               </ul>
               <h5 className="footer-title">{t("footer.menus.menu3")}</h5>
               <ul className="footer-list">
                   <li>
-                    <Link className="footer-link">
-                    <Col md="6" className="footer-social">
+                    <Link to={t("contact.phonelink")} className="footer-link">
+                    <Col md="6" className="footer-social" style={{display: "inline-flex", gap: "10px"}}>
                       <FaPhone color="white" size={16} />
-                      <a href={t("contact.phonelink")} className="social-icon">{t("contact.phone")}</a>
+                      <div className="social-icon">{t("contact.phone")}</div>
                     </Col>
                     </Link>
                   </li>
@@ -191,7 +187,7 @@ const DesktopFooter = () => {
           <Row className='footer-desktop-lower-row'>
             <Col md="6" className="footer-links">
               {Object.entries(footer.policies).map(([key, value]) => (
-                <Link key={key} to={value.path}>{value.title}</Link>
+                <Link key={key} to={value.path} onClick={() => window.scrollTo(0, 0)}>{value.title}</Link>
               ))}
             </Col>
           </Row>

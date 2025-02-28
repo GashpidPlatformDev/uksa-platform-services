@@ -2,14 +2,19 @@
 @import url('assets/styles/card-styles.css');
 @import url('assets/styles/auth-styles.css');
 @import url('assets/styles/cover-styles.css');
+@import url('assets/styles/exams-styles.css');
 @import url('assets/styles/middle-styles.css');
 @import url('assets/styles/navbar-styles.css');
 @import url('assets/styles/bottom-styles.css');
 @import url('assets/styles/footer-styles.css');
 @import url('assets/styles/subpage-styles.css');
 @import url('assets/styles/profile-styles.css');
+@import url('assets/styles/courses-styles.css');
+@import url('assets/styles/regular-styles.css');
+@import url('assets/styles/privacy-styles.css');
 @import url('assets/styles/contact-styles.css');
 @import url('assets/styles/carousel-styles.css');
+@import url('assets/styles/workshops-styles.css');
 
 ::-webkit-scrollbar-track
 {
@@ -28,16 +33,6 @@
 {
   border-radius: 10px;
 	background-color: #D3112B;
-  /*background-image: -webkit-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.2) 25%,
-    #D3112B 25%,
-    #D3112B 50%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0.2) 75%,
-    #D3112B 75%,
-    #D3112B
-  );*/
 }
 
 body {
@@ -52,5 +47,5 @@ body {
 }
 
 code {
-  font-family: 'Raleway', monospace; /* Opcional: Consistencia en fuentes */
+  font-family: 'Raleway', monospace;
 }

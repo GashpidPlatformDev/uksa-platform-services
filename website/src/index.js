@@ -10,6 +10,10 @@ import Index from "views";
 import ProfilePage from "views/profile";
 import "./index.css";
 import "./i18n";
+import Courses from "views/courses";
+import Workshops from "views/workshops";
+import Exams from "views/exams";
+import PrivacyPolicy from "views/privacy";
 
 const App = () => {
   return (
@@ -40,9 +44,13 @@ const MainApp = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/auth" element={<LogIn />} />
+        <Route path="/exams" element={<Exams />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/courses" element={<Courses />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/workshops" element={<Workshops />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

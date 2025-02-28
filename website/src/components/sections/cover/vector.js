@@ -48,7 +48,7 @@ const CoverVector = ({isTop}) => {
             <div className="svg-laptop">
                 {
                     <svg width="527" height="369" viewBox="0 0 527 369" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="portrait-vector 2" clip-path="url(#clip0_346_1989)">
+                    <g id="portrait-vector 2" clipPath="url(#clip0_346_1989)">
                         <g id="layer1">
                             <g id="g1">
                                 <g id="Clip path group">
@@ -75,20 +75,20 @@ const CoverVector = ({isTop}) => {
                     </g>
                     <defs>
                         <linearGradient id="paint0_linear_346_1989" x1="4.25118" y1="186.196" x2="11.6724" y2="186.359" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#ADB1B0"/>
-                            <stop offset="1" stop-color="#CECAD0"/>
+                            <stop stopColor="#ADB1B0"/>
+                            <stop offset="1" stopColor="#CECAD0"/>
                         </linearGradient>
                         <linearGradient id="paint1_linear_346_1989" x1="252.597" y1="367.797" x2="252.599" y2="362.667" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.156863"/>
-                            <stop offset="1" stop-opacity="0.239216"/>
+                            <stop stopOpacity="0.156863"/>
+                            <stop offset="1" stopOpacity="0.239216"/>
                         </linearGradient>
                         <linearGradient id="paint2_linear_346_1989" x1="515.31" y1="367.273" x2="514.572" y2="362.664" gradientUnits="userSpaceOnUse">
-                            <stop stop-opacity="0.133333"/>
-                            <stop offset="1" stop-opacity="0.27451"/>
+                            <stop stopOpacity="0.133333"/>
+                            <stop offset="1" stopOpacity="0.27451"/>
                         </linearGradient>
                         <linearGradient id="paint3_linear_346_1989" x1="252.15" y1="304.372" x2="273.412" y2="409.647" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#C4BFB8"/>
-                            <stop offset="1" stop-color="#D6D9E1"/>
+                            <stop stopColor="#C4BFB8"/>
+                            <stop offset="1" stopColor="#D6D9E1"/>
                         </linearGradient>
                         <clipPath id="clip0_346_1989">
                             <rect width="526.165" height="368.889" fill="white"/>

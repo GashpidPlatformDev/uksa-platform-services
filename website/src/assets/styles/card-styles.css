@@ -1,13 +1,13 @@
 .rcard {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.159);
   border: 1px solid #ddd;
   background-color: #fff;
   flex-direction: column;
+  aspect-ratio: 1 / 0.5;
   border-radius: 8px;
   text-align: left;
-  aspect-ratio: 1 / 0.5;
   display: flex;
-  padding: 16px;
+  padding: 15px;
   width: 80%;
 }
 

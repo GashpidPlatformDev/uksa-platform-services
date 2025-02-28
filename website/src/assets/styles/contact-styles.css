@@ -66,10 +66,10 @@ p a {
 
 .form-group input, 
 .form-group select {
-    width: 48%;
+    width: 68%;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 textarea {
@@ -112,8 +112,6 @@ textarea {
     width: 95%;
 }
 
-
-/* especial styles on footer */
 .toggle-comments-btn {
     background-color: #c1c1c18d;
     margin-bottom: 15px;

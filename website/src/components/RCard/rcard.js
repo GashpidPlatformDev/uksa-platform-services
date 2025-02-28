@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 
 const RCardMod = ({ imageUrl, title, buttonText, bottomText, bottomName, bottomJob, to }) => {
     return(
-        <div className="rcard" style={!title ? { backgroundColor: "#D5D5D5e7" } : {}}>
+        <div 
+            className={`rcard ${!title ? "variant" : ""}`}
+            style={!title ? { backgroundColor: "#C8C8C8EA" } : {}}
+        >
             {title &&
                 <>
                 <img src={imageUrl} alt={title} draggable={false} className="rcard-image" />
@@ -15,14 +18,16 @@ const RCardMod = ({ imageUrl, title, buttonText, bottomText, bottomName, bottomJ
                     {buttonText}
                 </Link>
             }
-            <p style={{color: "#194866", textAlign: "justify"}}>{bottomText}</p>
+            {bottomText &&
+                <p style={{color: "#232323", textAlign: "justify"}}>{bottomText}</p>
+            }
             {!title && 
                 <>
                 <div className="info-container">
                     <img src={imageUrl} alt={title} draggable={false} className="rcard-rounded-image" />
                     <div className="info-role">
                         <h3>{bottomName}</h3>
-                        <h5>{bottomJob}</h5>
+                        <h5 style={{color: "#232323"}}>{bottomJob}</h5>
                     </div>
                 </div>
                 </>               

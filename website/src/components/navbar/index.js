@@ -1,12 +1,13 @@
 import MobileNavbar from "./mobileNavbar";
 import { useEffect, useState } from "react";
 import DesktopNavbar from "./desktopNavbar";
-import { useTranslation } from "react-i18next";
+import { useTask } from "context/TaskContext";
 
 const Navbar = () => {
-    const { t } = useTranslation();
+    const { language, setLanguage } = useTask();
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1024);
-    const [currentLang, setCurrentLang] = useState(t("navbar.langs.item-1"))
+
+    console.log(language)
 
     useEffect(() => {
         const handleResize = () => {
@@ -21,10 +22,11 @@ const Navbar = () => {
         window.removeEventListener('resize', handleResize);
         };
     }, []);
+
     return(
         <>
-        {isSmallScreen ? <MobileNavbar setCurrentLang={setCurrentLang} /> : 
-        <DesktopNavbar currentLang={currentLang} setCurrentLang={setCurrentLang} />}
+        {isSmallScreen ? <MobileNavbar setCurrentLang={setLanguage} /> : 
+        <DesktopNavbar currentLang={language} setCurrentLang={setLanguage} />}
         </>
     )
 }

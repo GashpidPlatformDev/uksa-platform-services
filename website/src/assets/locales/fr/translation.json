@@ -1,7 +1,7 @@
 {
     "navbar": {
         "single-menu-1": {
-            "title": "Qui sommes-nous",
+            "title": "Qui sommes-nous ?",
             "path": "/"
         },
         "menus": {
@@ -9,7 +9,7 @@
                 "title": "Cours",
                 "items": {
                     "item-1": {
-                        "title": "Présentiel",
+                        "title": "En personne",
                         "path": "/"
                     },
                     "item-2": {
@@ -17,33 +17,24 @@
                         "path": "/"
                     },
                     "item-3": {
-                        "title": "Corporate",
-                        "path": "/"
-                    }
-                }
-            },
-            "menu-2": {
-                "title": "Examens",
-                "items": {
-                    "item-1": {
-                        "title": "Test de placement",
+                        "title": "Entreprise",
                         "path": "/"
                     }
                 }
             },
             "menu-3": {
-                "title": "Services",
+                "title": "Autres services",
                 "items": {
                     "item-1": {
-                        "title": "Préparation aux examens internationaux",
-                        "path": "/"
+                        "title": "Examens internationaux",
+                        "path": "/exams"
                     },
                     "item-2": {
                         "title": "Préparation aux entretiens d'embauche",
                         "path": "/"
                     },
                     "item-3": {
-                        "title": "Traduction certifiée de documents",
+                        "title": "Traduction officielle des documents",
                         "path": "/"
                     },
                     "item-4": {
@@ -54,135 +45,595 @@
             }
         },
         "single-menu-2": {
-            "title": "Contactez-nous",
-            "path": "/"
+            "title": "Contactez nous",
+            "path": "/contact"
         },
         "single-menu-3": {
-            "title": "Se connecter",
-            "path": "/"
+            "title": "Accès",
+            "path": "/auth"
         },
-        "search-placeholder": "Tapez pour rechercher...",
+        "doropdownmenu": {
+            "dashboard": {
+                "title": "mon tableau de bord"
+            }
+        },
+        "search-placeholder": "Écrire pour rechercher...",
         "langs": {
             "item-1": "Español (es)",
             "item-2": "English (en)",
             "item-3": "Deutsch (de)",
             "item-4": "Français (fr)",
             "item-5": "Português (pt)"
+        },
+        "dopdown": {
+            "btn1": "Aller au profil",
+            "btn2": "Déconnexion"
         }
     },
-    "footer": {
-        "logo-desc": "Anglais pour les entreprises et préparation aux examens internationaux",
-        "menus": {
-            "menu-1": {
-                "title": "Ressources pédagogiques",
-                "items": {
-                    "item-1": {
-                        "title": "Guides d'étude",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Matériel téléchargeable",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "Vidéos éducatives",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Exercices interactifs",
-                        "path": "/"
-                    }
+    "cover": {
+        "title": {
+            "top": "Bienvenue à",
+            "middle": {
+                "sub-1": "UK",
+                "sub-2": "SA",
+                "sub-3": "EXPERTS"
+            },
+            "bottom": "EN LANGUES"
+        },
+        "subtitle": "Passez au niveau supérieur grâce à nos cours de langues et laissez-nous vous aider dans votre processus de certification.",
+        "ribbon": {
+            "header": {
+                "item-1": {
+                    "title": "Acquérir un cours",
+                    "path": "/"
                 }
             },
-            "menu-2": {
-                "title": "Programmes et cours",
-                "items": {
-                    "item-1": {
-                        "title": "Anglais pour les entreprises",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Cours intensifs de langues",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "Préparation aux examens internationaux",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Programmes pour débutants",
-                        "path": "/"
-                    }
-                }
-            },
-            "menu-3": {
-                "title": "À propos de nous",
-                "items": {
-                    "item-1": {
-                        "title": "Notre histoire",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Rencontrez nos professeurs",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "Méthodologie d'enseignement",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Témoignages d'étudiants",
-                        "path": "/"
-                    },
-                    "item-5": {
-                        "title": "Questions fréquentes",
-                        "path": "/"
-                    }
-                }
-            },
-            "menu-4": {
-                "title": "Contactez-nous",
-                "items": {
-                    "item-1": {
-                        "title": "Centre d'aide",
-                        "path": "/"
-                    },
-                    "item-2": {
-                        "title": "Demander des informations",
-                        "path": "/"
-                    },
-                    "item-3": {
-                        "title": "Planifier une consultation",
-                        "path": "/"
-                    },
-                    "item-4": {
-                        "title": "Localisation de nos bureaux",
-                        "path": "/"
-                    }
+            "middle": {
+                "item-1": {
+                    "title": "Nos cours",
+                    "path": "/courses"
+                },
+                "item-2": {
+                    "title": "Nos ateliers",
+                    "path": "/workshops"
+                },
+                "item-3": {
+                    "title": "Examens de qualification",
+                    "path": "/"
+                },
+                "item-4": {
+                    "title": "Préparation aux examens internationaux",
+                    "path": "/exams"
                 }
             }
         },
-        "policies": {
+        "bottom": {
+            "title": "Boostez votre apprentissage avec des cours en ligne",
+            "text": "Découvrez comment notre plateforme d'apprentissage innovante révolutionne l'apprentissage des langues. Avec des cours en ligne dispensés par des professeurs experts, des ressources interactives et une approche personnalisée, nous facilitons vos progrès et vous garantissons une expérience efficace et de qualité. Passez au niveau supérieur !",
+            "button": {
+                "title": "En savoir plus",
+                "path": "/"
+            }
+        }
+    },
+    "middle": {
+        "title": {
+            "item-1": "Découvrez les langues que vous pouvez apprendre et maîtriser sur le site",
+            "item-2": {
+                "item-1": "ROYAUME-UNI",
+                "item-2": "SA"
+            },
+            "item-3": "EXPERTS LINGUISTIQUES"
+        },
+        "cards": {
             "item-1": {
-                "title": "Déclaration d'accessibilité",
+                "title": "Anglais",
+                "button": "En savoir plus",
+                "image": "english-portrait.png",
                 "path": "/"
             },
             "item-2": {
-                "title": "Politique de cookies",
+                "title": "Francés",
+                "button": "En savoir plus",
+                "image": "french-portrait.png",
                 "path": "/"
             },
             "item-3": {
-                "title": "Politique du site",
+                "title": "Portugais",
+                "button": "En savoir plus",
+                "image": "portugues-portrait.png",
                 "path": "/"
             },
             "item-4": {
-                "title": "Avis de confidentialité",
+                "title": "Allemand",
+                "button": "En savoir plus",
+                "image": "deutsch-portrait.png",
                 "path": "/"
             },
             "item-5": {
-                "title": "Politique de marques déposées",
+                "title": "Italien",
+                "button": "En savoir plus",
+                "image": "italian-portrait.png",
+                "path": "/"
+            },
+            "item-6": {
+                "title": "Espagnol pour les étrangers",
+                "button": "En savoir plus",
+                "image": "spanish-portrait.png",
                 "path": "/"
             }
+        }
+    },
+    "footer": {
+        "logo-desc": "Cours personnalisés, de groupe et d'entreprise.",
+        "menus": {
+            "menu1": "DEMANDER UN DEVIS",
+            "menu2": "SUIVEZ-NOUS SUR LES RÉSEAUX SOCIAUX",
+            "menu3": "Notre hotline"
+        },
+        "policies": {
+            "item-1": {
+                "title": "Politique de confidentialité",
+                "path": "/privacy"
+            }
+        }
+    },
+    "login": {
+        "usr": "Saisissez votre adresse électronique",
+        "pswd": "Entrez votre mot de passe",
+        "lost": "Vous avez oublié votre mot de passe ?",
+        "dashboard": {
+            "title": "Accès",
+            "path": "/dashboard"
+        },
+        "otherlogin": "Accéder en utilisant :",
+        "signup": "S'inscrire en tant qu'utilisateur",
+        "signupbtn": {
+            "title": "Créer un nouveau compte →",
+            "path": "/signup"
+        }
+    },
+    "signup": {
+        "title": "Registrese",
+        "name": "Nombre *",
+        "lastname": "Nom de famille *",
+        "email": "Courriel *",
+        "phone": {
+            "title": "Nombre *",
+            "areacode": "Code pays *"
+        },
+        "pswd": {
+            "placeholder": "Entrez votre mot de passe",
+            "mismatch": "les mots de passe ne correspondent pas"
+        },
+        "rpswd": "Répétez votre mot de passe",
+        "back": {
+            "title": "J'ai déjà un compte",
+            "path": "/auth"
+        },
+        "btn": "Registre",
+        "context": {
+            "title": "Vérifier votre compte",
+            "text": "Nous avons envoyé un courriel de vérification à votre adresse électronique. Veuillez vérifier votre boîte de réception et suivre les instructions pour activer votre compte. Si vous ne trouvez pas l'e-mail, vérifiez également votre dossier de spam ou de courrier indésirable. Si vous ne le trouvez toujours pas, essayez de renvoyer l'e-mail de vérification ou contactez-nous pour obtenir de l'aide. Merci de vous être inscrit - nous espérons vous voir bientôt !",
+            "btn": {
+                "title": "Retour au login",
+                "path": "/auth"
+            }
+        }
+    },
+    "profile": {
+        "settings": {
+            "title": "Paramètres du profil",
+            "btn1": "Mise à jour du profil",
+            "btn2": {
+                "state1": "Télécharger l'image",
+                "state2": "Escalade..."
+            },
+            "text": "Utilisez ce formulaire pour mettre à jour le profil de votre compte. L'adresse électronique indiquée ici sera utilisée pour vous connecter à votre compte et pour d'autres services liés à votre compte. Si vous devez mettre à jour votre adresse électronique, veuillez contacter le service d'assistance."
+        },
+        "tabs": {
+            "L": {
+                "title": "Cours de formation",
+                "empty": "Rien ici pour l'instant..."
+            },
+            "R": {
+                "title": "Sala",
+                "moodle": "Salles de classe"
+            }
+        }
+    },
+    "contact": {
+        "title": "Appelez-nous au",
+        "phonelink": "tel:+573204532331",
+        "phone": "+57 3204532331",
+        "subtitle": "En savoir plus",
+        "toptext": "Nous vous contacterons pour vous envoyer plus d'informations.",
+        "bottomtext": {
+            "part1": "En cliquant sur \"SOUMETTRE\", vous acceptez nos conditions d'utilisation.",
+            "part2": "Politique de traitement des données",
+            "part3": "y",
+            "part4": "Avis de confidentialité"
+        },
+        "name": "Nombre *",
+        "lastname": "Nom de famille *",
+        "email": "Courriel *",
+        "phonetype": {
+            "title": "Type de téléphone *",
+            "op1": "Téléphone portable",
+            "op2": "Fidji"
+        },
+        "phonenumber": "Numéro de téléphone *",
+        "quote": {
+            "title": "Candidature au nom d'une entreprise ? *",
+            "op1": "Si",
+            "op2": "Non"
+        },
+        "learningmethod": {
+            "title": "Méthode d'apprentissage préférée *",
+            "op1": "Virtuel",
+            "op2": "En personne"
+        },
+        "whowilltakecourse": {
+            "title": "Qui suivra le cours ? *",
+            "op1": "Yo",
+            "op2": "Autre personne"
+        },
+        "location": "Ville où vous êtes situé *",
+        "language": "Langues *",
+        "comments": "Laissez-nous vos commentaires",
+        "checkbox": {
+            "part1": "Je souhaite recevoir des informations et des offres spéciales de la part de",
+            "part2": "Je peux retirer mon autorisation à tout moment."
+        },
+        "btn": "Envoyer",
+        "sent": "Envoyé à",
+        "footerbtn": {
+            "state1": "Afficher le champ de commentaires",
+            "state2": "Masquer le champ de commentaires"
+        }
+    },
+    "witness": {
+        "title": "Témoignages",
+        "items": {
+            "item-1": {
+                "text": "Dans ma vie, j'ai toujours eu du mal à apprendre une nouvelle langue comme l'anglais, à cause du manque de temps, des méthodologies classiques que je trouvais ennuyeuses et inefficaces, des horaires stricts et de bien d'autres choses qui m'empêchaient de l'apprendre ; mais j'ai ensuite rencontré la méthodologie de l'équipe UKSA, et j'ai commencé à contrôler mon temps, à intégrer l'anglais dans ma routine et à m'amuser en apprenant avec une équipe pleine de charisme. Je recommande sans hésiter la méthodologie de l'équipe UKSA.",
+                "name": "Jesús Galvis",
+                "job": "Coordinateur de l'assurance et directeur technique Gestion de la qualité Unique-Yanbal Colombie",
+                "image": "witness1.jpg"
+            },
+            "item-2": {
+                "text": "Mon expérience des études à l'UKSA a été très enrichissante. Ce sont des gens très professionnels qui proposent un programme solide permettant d'acquérir toutes les compétences requises dans une deuxième langue, en l'occurrence l'anglais. Ils vous fournissent d'excellents outils, des professionnels très compétents et responsables qui vous apportent le soutien nécessaire tout au long du processus. J'ai pu faire des progrès significatifs dans mon apprentissage, j'ai également gagné en sécurité et en confiance pour communiquer. Je recommande leur méthodologie qui répond aux besoins particuliers du client.",
+                "name": "Alejandra Martínez",
+                "job": "Chef de la région Colombie - Sciences et politiques réglementaires internationales - Pfizer",
+                "image": "witness2.jpg"
+            },
+            "item-3": {
+                "text": "J'ai longtemps pensé qu'à un certain âge, il était très difficile d'apprendre ou de perfectionner une nouvelle langue, puis lorsque j'ai eu l'occasion de connaître et d'expérimenter la stratégie pédagogique utilisée par UKSA, j'ai compris que ce sont les méthodes d'apprentissage et les professionnels qui rendent le processus d'apprentissage de l'anglais, dans mon cas, convivial, fructueux et amusant. Je recommanderais sans hésiter UKSA aux personnes qui souhaitent apprendre une nouvelle langue à partir de zéro ou qui veulent relever des défis professionnels avec une excellente équipe.",
+                "name": "Ana Pino",
+                "job": "Cadre commercial - Microsoft",
+                "image": "witness3.jpg"
+            }
+        }
+    },
+    "ourcourses": {
+        "header": {
+            "title": "Nos cours de langues",
+            "text": "Chez UKSA Language Experts, nous proposons des cours d'anglais, de français, d'allemand, de portugais, d'italien et d'espagnol pour étrangers, conçus pour répondre à vos besoins et objectifs spécifiques. Notre approche innovante garantit un apprentissage dynamique et efficace dès le premier jour."
+        },
+        "body": {
+            "title": "Pourquoi choisir nos cours ?",
+            "item1": {
+                "subtitle": "Méthodologie PNL (programmation neurolinguistique)",
+                "text": "Vous apprendrez à communiquer naturellement et couramment dès le premier cours, ce qui renforcera votre confiance dans la production orale."
+            },
+            "item2": {
+                "subtitle": "Matériel exclusif et accès numérique",
+                "text": "Vous recevrez un ensemble de deux livres (le livre de l'élève et le cahier de devoirs) ainsi que du matériel supplémentaire sur notre plateforme web."
+            },
+            "item3": {
+                "subtitle": "Flexibilité du temps",
+                "text": "Nous nous adaptons à vos disponibilités afin que vous puissiez apprendre sans affecter votre routine quotidienne."
+            },
+            "item4": {
+                "subtitle": "Concentrez-vous sur votre domaine d'activité",
+                "text": "Nous concevons nos cours de manière à renforcer le vocabulaire et les compétences linguistiques spécifiques à votre secteur professionnel."
+            },
+            "item5": {
+                "subtitle": "Conseils de type coaching",
+                "text": "Plus qu'un simple cours de langue, nous vous proposons des séances de coaching axées sur.. :",
+                "items": {
+                    "item1": "Négociation et marketing",
+                    "item2": "Gestion et administration",
+                    "item3": "Littérature et psychologie",
+                    "item4": "Technologie et innovation",
+                    "item5": "Soins de santé et médecine",
+                    "item6": "Et bien plus encore !"
+                }
+            },
+            "modalities": {
+                "title": "Modalités et durée Intensité",
+                "description": "Nous proposons trois modalités en fonction de votre disponibilité et de votre rythme d'apprentissage.",
+                "table": {
+                    "headers": [
+                        "Modalité",
+                        "Durée de l'accord",
+                        "Fréquence",
+                        "Temps d'étude à domicile"
+                    ],
+                    "rows": [
+                        [
+                            "Standard",
+                            "5 mois",
+                            "2 sessions hebdomadaires de 1h 30m",
+                            "2-3 heures par semaine"
+                        ],
+                        [
+                            "Semi-intensif",
+                            "3 mois et demi",
+                            "3 sessions hebdomadaires de 1h 30m",
+                            "2-3 heures par semaine"
+                        ],
+                        [
+                            "Intensif",
+                            "2 mois et demi",
+                            "5 sessions hebdomadaires de 1h 30m",
+                            "2-3 heures par semaine"
+                        ]
+                    ]
+                },
+                "footer": "Tous les cours comprennent du matériel de soutien et l'accès à notre plateforme en ligne.",
+                "contact": {
+                    "text": "Inscrivez-vous dès aujourd'hui et commencez à parler en toute confiance ! Contactez-nous pour plus d'informations et pour choisir le cours qui correspond le mieux à vos besoins.",
+                    "links": {
+                        "form": "Formulaire de contact",
+                        "whatsapp": "WhatsApp",
+                        "info": "Plus d'informations"
+                    }
+                }
+            }
+        }
+    },
+    "workshops": {
+        "header": {
+            "title": "Nos ateliers spécialisés",
+            "text": "En plus de nos cours, nous proposons des ateliers conçus pour améliorer des compétences spécifiques et compléter l'apprentissage de la langue."
+        },
+        "body": {
+            "title": "Ateliers disponibles",
+            "items": [
+                {
+                    "subtitle": "Cours de conversation",
+                    "text": "Améliorez votre aisance et votre confiance en vous grâce à nos sessions interactives animées par des experts en langues.",
+                    "image": "conversation.png"
+                },
+                {
+                    "subtitle": "Préparation aux entretiens d'embauche",
+                    "text": "Entraînez-vous à répondre aux questions les plus courantes, perfectionnez vos réponses et acquérez des stratégies pour vous démarquer lors des entretiens en langue étrangère.",
+                    "image": "interview.png"
+                },
+                {
+                    "subtitle": "Renforcement de l'école",
+                    "text": "Aide aux devoirs, compréhension de textes et préparation aux examens en anglais, français, allemand et autres langues.",
+                    "image": "school-support.png"
+                },
+                {
+                    "subtitle": "Rédaction et révision de textes académiques",
+                    "text": "Apprenez à rédiger des essais, des rapports et des documents académiques en anglais avec une structure et une grammaire correctes.",
+                    "image": "writing.png"
+                },
+                {
+                    "subtitle": "Présentations et discours",
+                    "text": "Maîtriser l'art de parler en public dans une autre langue, en utilisant les techniques d'art oratoire et le langage corporel.",
+                    "image": "presentation.png"
+                }
+            ]
+        }
+    },
+    "international_exams": {
+        "title": "Examens internationaux",
+        "description": "Chez UKSA Language Experts, nous vous préparons à obtenir des certifications internationales reconnues dans le monde entier. Ces tests attestent officiellement de votre maîtrise d'une langue et peuvent vous ouvrir des portes dans les universités, les offres d'emploi et les procédures d'immigration.",
+        "languages": {
+            "english": {
+                "title": "Anglais",
+                "description": "Les examens internationaux de langue anglaise certifient votre niveau de maîtrise de diverses compétences linguistiques. Ces certifications sont acceptées par les établissements d'enseignement, les employeurs et les services d'immigration dans de nombreux pays.",
+                "image": "english-exams.png"
+            },
+            "french": {
+                "title": "Francés",
+                "description": "Si vous souhaitez valider officiellement votre connaissance du français, ces examens sont conçus pour tester votre compréhension orale et écrite, votre grammaire et vos compétences en matière de conversation. Ils sont exigés pour les études en France et dans les autres pays francophones.",
+                "exams": [
+                    {
+                        "name": "DELF / DALF",
+                        "description": "Certificats délivrés par le ministère français de l'éducation pour évaluer les différents niveaux de français.",
+                        "logo": "delf.jpg"
+                    }
+                ]
+            },
+            "portuguese": {
+                "title": "Portugais",
+                "description": "Les certifications en langue portugaise vous permettent de démontrer votre niveau de maîtrise de la langue dans des contextes universitaires et professionnels au Brésil et dans d'autres pays lusophones.",
+                "exams": [
+                    {
+                        "name": "CELPE-Bras",
+                        "description": "Certification officielle du gouvernement brésilien, indispensable pour étudier ou travailler au Brésil.",
+                        "logo": "celpe-bras.png"
+                    }
+                ]
+            },
+            "german": {
+                "title": "Allemand",
+                "description": "Les tests de certification en langue allemande sont essentiels pour étudier dans les universités allemandes ou pour démontrer ses compétences linguistiques dans un environnement professionnel.",
+                "exams": [
+                    {
+                        "name": "Certificat Goethe",
+                        "description": "Certification officielle reconnue par les institutions académiques et les entreprises en Allemagne.",
+                        "logo": "goethe.png"
+                    },
+                    {
+                        "name": "TestDaF",
+                        "description": "Examen spécialisé pour l'admission à l'enseignement supérieur en Allemagne.",
+                        "logo": "testdaf.jpg"
+                    }
+                ]
+            },
+            "italian": {
+                "title": "Italien",
+                "description": "Certifications internationales pour ceux qui souhaitent démontrer leur maîtrise de l'italien dans les universités ou dans les milieux professionnels.",
+                "exams": [
+                    {
+                        "name": "CELI",
+                        "description": "Certification de l'Université de Pérouse, reconnue pour les processus académiques et de travail.",
+                        "logo": "siele.png"
+                    }
+                ]
+            },
+            "spanish": {
+                "title": "Anglais",
+                "description": "Examens destinés aux étrangers qui souhaitent obtenir un certificat officiel espagnol.",
+                "exams": [
+                    {
+                        "name": "ICI",
+                        "description": "Certification numérique de l'espagnol reconnue dans plusieurs pays et ayant une validité académique et professionnelle.",
+                        "logo": "siele.png"
+                    }
+                ]
+            }
+        }
+    },
+    "privacypolicy": {
+        "introduction": {
+            "title": "Politique de confidentialité",
+            "text": "Chez UKSA Language Experts SAS (\"UKSA\", \"nous\", \"notre\", \"nos\"), nous nous engageons à protéger la vie privée de nos étudiants, de nos utilisateurs et de toute autre personne qui interagit avec nos services (\"vous\"). Cette politique décrit la manière dont nous recueillons, utilisons et partageons vos informations lorsque vous utilisez notre site web et nos services connexes. En utilisant nos services, vous acceptez les termes de cette politique."
+        },
+        "informationCollection": {
+            "title": "Informations collectées",
+            "text": "Nous recueillons des informations de différentes manières, notamment lorsque vous interagissez avec notre site web, que vous vous inscrivez à un cours, que vous effectuez un achat, que vous communiquez avec nous ou que vous participez à des enquêtes ou à des promotions.",
+            "sections": {
+                "providedInfo": {
+                    "title": "Informations que vous nous fournissez",
+                    "text": [
+                        "Informations sur le compte : nom, adresse électronique, mot de passe, paramètres du compte, adresse de notification légale, adresse professionnelle.",
+                        "Informations sur le profil : photo, titre, biographie, langue, lien vers le site web, profils de médias sociaux.",
+                        "Contenu partagé : cours, commentaires, questions, réponses, photos, autres travaux.",
+                        "Données d'apprentissage : cours, devoirs, laboratoires, espaces de travail, examens, crédits, achats, abonnements, certificats, échanges avec des enseignants et d'autres étudiants.",
+                        "Informations relatives au paiement : nom, adresse de facturation, code postal, informations relatives à la carte de crédit (via des prestataires de services de paiement externes), informations relatives à PayPal ou Payoneer pour les instructeurs.",
+                        "Informations sur les comptes de tiers : informations provenant des médias sociaux ou d'autres comptes en ligne liés à votre compte UKSA.",
+                        "Informations sur les concours, les promotions et les enquêtes : nom, adresse électronique, adresse postale, date de naissance, numéro de téléphone.",
+                        "Communications et assistance : informations de contact, messages, localisation, numéro d'identification de l'utilisateur UKSA, numéro d'identification de la transaction de remboursement."
+                    ]
+                },
+                "automaticCollection": {
+                    "title": "Informations que nous collectons automatiquement",
+                    "text": [
+                        "Données système : adresse IP, type d'appareil, système d'exploitation, navigateur, langue du navigateur, domaine, plateforme.",
+                        "Données d'utilisation : statistiques d'utilisation sur les interactions avec les services, telles que le contenu consulté, le temps passé sur les pages, les pages visitées, les fonctions utilisées, les requêtes de recherche, les données de parcours, la date et l'heure, les référents.",
+                        "Données géographiques approximatives : pays, ville, coordonnées géographiques, calculées sur la base de l'adresse IP."
+                    ]
+                }
+            }
+        },
+        "dataUsage": {
+            "title": "Informations que nous recueillons auprès de tiers",
+            "subtitle": "Nous pouvons recueillir des informations vous concernant auprès de tiers, tels que :",
+            "text": [
+                "Coordonnées de l'entreprise : à partir de sources commerciales externes si vous êtes une entreprise existante ou potentielle de l'UKSA.",
+                "Informations relatives aux médias sociaux : si vous vous connectez à l'UKSA par l'intermédiaire d'une plateforme tierce telle que Facebook.",
+                "Informations sur le fournisseur de services de paiement : nom, informations sur la carte de crédit, adresse de facturation et code postal."
+            ]
+        },
+        "dataSharing": {
+            "title": "Comment nous utilisons les informations",
+            "subtitle": "Nous utilisons les informations que nous recueillons à diverses fins, notamment :",
+            "item1": {
+                "subtitle": "Fournir et gérer des services :",
+                "subitems": [
+                    "Faciliter la participation au contenu éducatif.",
+                    "Délivrer des certificats de fin de cours.",
+                    "Afficher un contenu personnalisé.",
+                    "Faciliter la communication avec les autres utilisateurs.",
+                    "Traiter les paiements aux instructeurs et à d'autres tiers.",
+                    "traiter les demandes et les commandes de contenu éducatif, de produits, de services, d'informations ou de fonctions."
+                ]
+            },
+            "item2": {
+                "subtitle": "Communiquer avec vous :",
+                "subitems": [
+                    "Répondre à leurs questions et préoccupations.",
+                    "Envoyer des messages administratifs et des informations, tels que des messages des formateurs, des étudiants et des assistants d'enseignement, des notifications de modifications de nos services et des mises à jour de nos accords.",
+                    "Envoyer des informations sur vos progrès dans les cours, les programmes de récompense, les nouveaux services, les nouvelles fonctionnalités, les promotions, les bulletins d'information et d'autres contenus créés par les formateurs (avec la possibilité de se désinscrire).",
+                    "Envoyer des notifications push à votre appareil sans fil (avec l'option de gestion dans les paramètres de l'application mobile)."
+                ]
+            },
+            "item3": {
+                "subtitle": "Gérer votre compte et vos préférences :",
+                "subitems": [
+                    "Personnalisez votre expérience.",
+                    "Faciliter le fonctionnement technique des services, y compris le dépannage, la protection des services et la prévention de la fraude et des abus."
+                ]
+            },
+            "item4": "Vérifier l'identité des instructeurs.",
+            "item5": "Solliciter le retour d'information des utilisateurs.",
+            "item6": "Proposer des produits, des services, des enquêtes et des promotions.",
+            "item7": "Améliorer nos services et développer de nouveaux produits, services et fonctions.",
+            "item8": "Analyser les tendances et le trafic, et suivre les données d'achat et d'utilisation.",
+            "item9": "Faire de la publicité pour des services sur des sites web et des applications de tiers.",
+            "item10": "Pour se conformer à la loi ou pour des raisons de sécurité et d'intégrité."
+        },
+        "sharedInfo": {
+            "title": "Comment nous partageons l'information",
+            "subtitle": "Nous pouvons partager vos informations avec des tiers dans les circonstances suivantes :",
+            "text": [
+                "Avec les formateurs : nous partageons des données avec les formateurs afin qu'ils puissent améliorer leur contenu pour vous et les autres étudiants.",
+                "Avec d'autres étudiants et enseignants : selon vos paramètres, le contenu partagé et les données de profil peuvent être visibles publiquement, y compris par d'autres étudiants et enseignants.",
+                "Avec des prestataires de services : nous partageons des données avec des sociétés tierces qui fournissent des services en notre nom, tels que le traitement des paiements, la prévention des fraudes, l'analyse des données, le marketing, la publicité, le courrier électronique, l'hébergement, le service à la clientèle et l'assistance.",
+                "Avec les sociétés affiliées à l'UKSA : nous pouvons partager des données au sein de notre groupe de sociétés liées par une propriété ou un contrôle commun.",
+                "Avec des partenaires commerciaux : nous pouvons partager des données avec d'autres sites web et plateformes avec lesquels nous avons des accords pour distribuer nos services et diriger le trafic vers UKSA.",
+                "Avec des organisations qui accordent des crédits de formation continue : nous pouvons partager des informations si vous vous inscrivez à un cours pour satisfaire à une exigence de formation professionnelle continue.",
+                "Avec des services d'analyse et d'enrichissement des données : Nous partageons des informations avec des services tels que Google Analytics et ZoomInfo à des fins d'analyse et d'enrichissement des données.",
+                "Pour alimenter les fonctionnalités des médias sociaux : les fonctionnalités des médias sociaux sur les services peuvent permettre à des tiers de collecter des informations vous concernant.",
+                "Pour administrer des promotions et des enquêtes : nous pouvons partager des données pour administrer, commercialiser ou parrainer des promotions et des enquêtes auxquelles vous participez.",
+                "Publicité : nous pouvons utiliser et partager des données avec des annonceurs et des réseaux tiers afin d'afficher des informations démographiques et de préférence et de vous fournir des publicités personnalisées.",
+                "Pour des raisons de sécurité et de conformité légale : nous pouvons divulguer des données à des tiers si nous pensons en toute bonne foi que cette divulgation est nécessaire pour respecter la loi, protéger nos droits ou la sécurité de nos utilisateurs ou du public.",
+                "Lors d'un changement de contrôle : nous pouvons partager ou divulguer des données en cas de fusion, d'acquisition, de cession d'entreprise ou de dissolution.",
+                "Après agrégation/dépersonnalisation : nous pouvons divulguer ou utiliser des données agrégées ou dépersonnalisées à n'importe quelle fin.",
+                "Avec votre permission : Avec votre consentement, nous pouvons partager des données avec des tiers en dehors du champ d'application de la présente politique."
+            ]
+        },
+        "security": {
+            "title": "Sécurité",
+            "text": "Nous mettons en œuvre des mesures de sécurité techniques, administratives et physiques pour protéger vos informations. Ces mesures comprennent le cryptage des données, la restriction de l'accès aux informations et l'utilisation de pare-feu. Toutefois, aucune méthode de transmission sur Internet ou de stockage électronique n'est sûre à 100 %. Nous ne pouvons donc pas garantir la sécurité absolue de vos informations."
+        },
+        "userRights": {
+            "title": "Vos droits",
+            "subtitle": "Vous disposez des droits suivants en ce qui concerne vos informations personnelles :",
+            "text": [
+                "Droit d'accès : vous pouvez accéder aux informations personnelles que nous détenons à votre sujet.",
+                "Droit de rectification : vous pouvez nous demander de corriger toute information inexacte ou incomplète.",
+                "Droit d'effacement : vous pouvez nous demander d'effacer vos données personnelles dans certaines circonstances.",
+                "Droit de restreindre le traitement : vous pouvez nous demander de restreindre le traitement de vos informations personnelles dans certaines circonstances.",
+                "Droit à la portabilité des données : Vous pouvez recevoir vos informations personnelles dans un format structuré, couramment utilisé et lisible par machine et les transmettre à un autre responsable du traitement.",
+                "Droit d'opposition : vous pouvez vous opposer au traitement de vos données personnelles dans certaines circonstances.",
+                "Droit de ne pas faire l'objet de décisions automatisées : vous pouvez nous demander de ne pas prendre de décisions automatisées fondées uniquement sur un traitement automatisé, y compris le profilage, qui produisent des effets juridiques3 ou vous affectent de manière significative."
+            ]
+        },
+        "internationalTransfers": {
+            "title": "Transferts internationaux de données",
+            "text": "Nous pouvons transférer vos informations personnelles vers des pays autres que la Colombie aux fins décrites dans la présente politique. Dans ce cas, nous prendrons des mesures pour garantir que vos informations personnelles sont protégées conformément à la présente politique."
+        },
+        "updates": {
+            "title": "Mises à jour de cette politique",
+            "text": "Nous pouvons mettre à jour cette politique de temps à autre. Si nous apportons des modifications importantes, nous vous en informerons par courrier électronique ou par le biais d'un avis sur notre site web."
+        },
+        "contact": {
+            "title": "Contact",
+            "text": [
+                "Si vous avez des questions concernant cette politique, vous pouvez nous contacter à l'adresse suivante",
+                "UKSA Experts linguistiques SAS",
+                "CL 142 NO. 11 50 AP 415",
+                "Bogotá D.C., Colombie",
+                "Courriel : info@uksaidiomas.com",
+                "Téléphone : (+57) 31134567865"
+            ]
         }
     }
 }

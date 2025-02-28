@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Navbar, Nav, NavItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import {userIcon, navbarIcon, coursesIcon, examsIcon, servicesIcon, downArrow, lensIcon, langIcon} from '../imports/imports';
+import {userIcon, navbarIcon, coursesIcon, examsIcon, servicesIcon, downArrow, /*lensIcon, */langIcon} from '../imports/imports';
 import { useTranslation } from "react-i18next";
 import { useTask } from 'context/TaskContext';
 import { Link } from 'react-router-dom';
@@ -8,8 +8,8 @@ import NavbarDropdownMenu from './dropdown';
 
 
 const DesktopNavbar = ({ currentLang, setCurrentLang }) => {
-  const {profile} = useTask()
   const loginRef = useRef(null);
+  const { profile } = useTask();
   const { t, i18n } = useTranslation();
   const [userName, setUserName] = useState(null);
   const navbar = t("navbar", { returnObjects: true });
@@ -19,7 +19,7 @@ const DesktopNavbar = ({ currentLang, setCurrentLang }) => {
   const [isDropdown_menu_2, setDropdown_menu_2] = useState(false);
   const [isDropdown_menu_3, setDropdown_menu_3] = useState(false);
   const [isDropdown_menu_4, setDropdown_menu_4] = useState(false);
-  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+  /*const [isSearchExpanded, setIsSearchExpanded] = useState(false);*/
   const isDropdownMenus = [isDropdown_menu_1, isDropdown_menu_2, isDropdown_menu_3]
 
   useEffect(() => {
@@ -40,9 +40,9 @@ const DesktopNavbar = ({ currentLang, setCurrentLang }) => {
     t("navbar.langs.item-5")
   ];
 
-  const handleSearchClick = () => {
+  /*const handleSearchClick = () => {
     setIsSearchExpanded(!isSearchExpanded);
-  };
+  };*/
 
   const toggleDropdown  = (id) => {
     switch (id){
@@ -142,14 +142,14 @@ const DesktopNavbar = ({ currentLang, setCurrentLang }) => {
       </div>
       <Nav className="navbar-desktop-lang">
         <div className='navbar-desktop-lang-align'>
-          {isSearchExpanded && (
+          {/*{isSearchExpanded && (
             <input 
               type="text" 
               className="search-input" 
               placeholder={t("navbar.search-placeholder")}
             />
           )}
-          <img src={lensIcon} alt="User-Icon" onClick={handleSearchClick}/>
+          <img src={lensIcon} alt="User-Icon" onClick={handleSearchClick}/>*/}
           <UncontrolledDropdown inNavbar className="navbar-dropdown">
             <DropdownToggle nav className="navbar-link" onClick={() => toggleDropdown(3)}>
               <img src={langIcon} alt="Lang-Icon" style={{margin:"3px"}}/>

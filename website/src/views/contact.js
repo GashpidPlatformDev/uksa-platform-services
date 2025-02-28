@@ -78,11 +78,7 @@ function ContactUs() {
                     </div>
 
                     <div className="form-group">
-                        <select name="phoneType" required onChange={handleChange}>
-                            <option value="">{t("contact.phonetype.title")}</option>
-                            <option value={t("contact.phonetype.op1")}>{t("contact.phonetype.op1")}</option>
-                            <option value={t("contact.phonetype.op2")}>{t("contact.phonetype.op2")}</option>
-                        </select>
+                        <input type="text" name="phonetype" placeholder={t("signup.phone.areacode")} required onChange={handleChange} />
                         <input type="text" name="phoneNumber" placeholder={t("contact.phonenumber")} required onChange={handleChange} />
                         <select name="companyRequest" required onChange={handleChange}>
                             <option value="">{t("contact.quote.title")}</option>

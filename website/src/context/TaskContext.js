@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { client } from "schema/client";
 
 export const TaskContext = createContext()
@@ -10,11 +11,13 @@ export const useTask = () => {
 }
 
 export const TaskContextProvider = ({children}) => {
+    const { t } = useTranslation();
     const [userId, setUserId] = useState(null);
     const [profile, setProfile] = useState(null);
     const [courseId, setCourseId] = useState(null);
     const [avatarUrl, setAvatarUrl] = useState(null);
     const [courseUrl, setCourseUrl] = useState(null);
+    const [language, setLanguage] = useState(t("navbar.langs.item-1"));
 
     async function updateProfile() {
         try {
@@ -44,12 +47,14 @@ export const TaskContextProvider = ({children}) => {
             userId, 
             profile, 
             courseId,
+            language,
             avatarUrl, 
-            courseUrl, 
+            courseUrl,
             updateProfile,
             setCourseUrl,
             setAvatarUrl,
             setCourseId,
+            setLanguage,
             setUserId,
             logOut,
         }

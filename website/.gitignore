@@ -6,7 +6,7 @@
 .pnp.js
 
 # Salidas de compilación
-#/build
+/build
 
 # Archivos de configuración o logs
 npm-debug.log*

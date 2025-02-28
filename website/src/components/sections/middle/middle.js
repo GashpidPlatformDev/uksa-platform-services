@@ -1,4 +1,3 @@
-import { languagesPortrait } from "components/imports/imports";
 import RCard from "components/RCard";
 import { useTranslation } from "react-i18next";
 import React, { useRef, useState } from "react";
@@ -16,35 +15,30 @@ const MiddleSection = () => {
     
     const totalItems = Object.entries(middle.cards).length;
 
-    // Avanzar solo si no es el último elemento
     const nextItem = () => {
         setCurrentIndex((prevIndex) => (prevIndex < totalItems - 1 ? prevIndex + 1 : prevIndex));
     };
 
-    // Retroceder solo si no es el primer elemento
     const prevItem = () => {
         setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
     };
 
-    // Inicia el arrastre (PC y móviles)
     const handleStart = (clientX) => {
         setIsDragging(true);
         setStartX(clientX);
     };
 
-    // Maneja el movimiento del cursor/touch
     const handleMove = (clientX) => {
         if (!isDragging) return;
         setDeltaX(clientX - startX);
     };
 
-    // Finaliza el arrastre y decide si cambiar de slide
     const handleEnd = () => {
         if (isDragging) {
             if (deltaX < -50 && currentIndex < totalItems - 1) {
-                nextItem(); // Desplazamiento a la izquierda → siguiente
+                nextItem();
             } else if (deltaX > 50 && currentIndex > 0) {
-                prevItem(); // Desplazamiento a la derecha → anterior
+                prevItem();
             }
         }
         setIsDragging(false);
@@ -66,7 +60,7 @@ const MiddleSection = () => {
                 <button 
                     className="carousel-button prev" 
                     onClick={prevItem}
-                    disabled={currentIndex === 0} // Deshabilita si es el primero
+                    disabled={currentIndex === 0}
                 >
                     &#8249;
                 </button>
@@ -93,7 +87,12 @@ const MiddleSection = () => {
                             key={index}
                             className={`carousel-item ${index === currentIndex ? 'active' : ''}`}
                         >
-                            <RCard imageUrl={languagesPortrait[index]} title={value.title} buttonText={value.button} to={value.path} />
+                            <RCard 
+                                to={value.path}
+                                title={value.title} 
+                                buttonText={value.button} 
+                                imageUrl={require(`assets/media/images/${value.image}`)}
+                            />
                         </div>
                     ))}
                 </div>

@@ -63,8 +63,8 @@ const MobileNavbar = ({ setCurrentLang }) => {
     <>
     <Navbar className="navbar-desktop" expand="md" fixed="top">
       <div className="navbar-mobile-align">
-        <Link href="/">
-          <img src={navbarIcon} alt="Navbar-Icon" className="navbar-mobile-logo" />
+        <Link to="/">
+          <img src={navbarIcon} alt="navbar-mobile-icon" className="navbar-mobile-logo" />
         </Link>
         <div className="navbar-mobile-right-elements">
           <Nav className="navbar-mobile-links" navbar>

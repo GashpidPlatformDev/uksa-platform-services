@@ -78,11 +78,7 @@ const MobileFooter = () => {
                         </div>
         
                         <div className="form-group">
-                            <select name="phoneType" required onChange={handleChange}>
-                                <option value="">{t("contact.phonetype.title")}</option>
-                                <option value={t("contact.phonetype.op1")}>{t("contact.phonetype.op1")}</option>
-                                <option value={t("contact.phonetype.op2")}>{t("contact.phonetype.op2")}</option>
-                            </select>
+                            <input type="text" name="phonetype" placeholder={t("signup.phone.areacode")} required onChange={handleChange} />
                             <input type="text" name="phoneNumber" placeholder={t("contact.phonenumber")} required onChange={handleChange} />
                             <select name="companyRequest" required onChange={handleChange}>
                                 <option value="">{t("contact.quote.title")}</option>
@@ -158,7 +154,7 @@ const MobileFooter = () => {
         <Row className='footer-desktop-lower-row'>
           <Col md="6" className="footer-links mobile-policies-container">
             {Object.entries(footer.policies).map(([key, value]) => (
-              <Link key={key} to={value.path} className='mobile-policies'>{value.title}</Link>
+              <Link key={key} to={value.path} className='mobile-policies' onClick={() => window.scrollTo(0, 0)}>{value.title}</Link>
             ))}
           </Col>
         </Row>

@@ -1,0 +1,117 @@
+/* 📌 Contenedor principal */
+.regular-container {
+    background-color: aliceblue;
+    justify-content: center;
+    padding-top: 40px;
+    min-height: 30vh;
+    margin-top: 60px;
+    display: flex;
+    text-align: left;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    width: 100%;
+    text-align: center;
+}
+
+/* 📌 Título principal */
+.regular-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #194866;
+    margin-bottom: 15px;
+    text-align: center;
+    max-width: 100%;
+}
+
+/* 📌 Texto de descripción */
+.regular-text {
+    background-color: transparent;
+    text-align: justify;
+    max-width: 90%;
+    margin: 0px auto 0px auto;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* 📌 Contenedor de cada beneficio */
+.course-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin: 15px 0;
+    width: 90%;
+    margin: 0px auto 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* 📌 Subtítulo de cada beneficio */
+.item-subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #194866;
+    margin-bottom: 10px;
+}
+
+/* 📌 Texto de cada beneficio */
+.item-text {
+    font-size: 1rem;
+    color: #333;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* 📌 Lista dentro de "Asesoría tipo coaching" */
+.coaching-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.coaching-list li {
+    font-size: 1rem;
+    color: #444;
+    padding-left: 15px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+/* 📌 Agrega un ícono decorativo a cada ítem de la lista */
+.coaching-list li::before {
+    content: "✔";
+    color: #2ECC71;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .regular-title {
+        font-size: 1.8rem;
+    }
+    
+    .regular-text {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .course-item {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .item-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .item-text {
+        font-size: 0.95rem;
+    }
+
+    .coaching-list li {
+        font-size: 0.95rem;
+    }
+}
