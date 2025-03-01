@@ -119,6 +119,7 @@
     padding-top: 5px;
     margin-top: 10px;
     display: flex;
+    z-index: 9999;
   }
   
   .navbar-desktop-login .navbar-desktop-link {
@@ -261,6 +262,7 @@
     margin-right: 50%;
     padding-top: 5px;
     display: flex;
+    z-index: 999;
   }
 
 /* Sliding for mobile navbar */
