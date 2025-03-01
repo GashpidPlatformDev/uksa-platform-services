@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Navbar, Nav, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {userIcon, navbarIcon, downArrow, menuIcon, langIcon, coursesIcon, examsIcon, servicesIcon} from '../imports/imports';
 import { useTranslation } from "react-i18next";
 import { useTask } from 'context/TaskContext';
 import { Link } from 'react-router-dom';
+import NavbarDropdownMenu from './dropdown';
 
 const MobileNavbar = ({ setCurrentLang }) => {
-  const {profile} = useTask()
+  const {profile} = useTask();
+  const navRef = useRef(null);
   const { t, i18n } = useTranslation();
   const [userName, setUserName] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navbar = t("navbar", { returnObjects: true });
   const icons = [coursesIcon, examsIcon, servicesIcon];
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdown_menu, setDropdown_menu] = useState(false);
   const [expandedSubMenus, setExpandedSubMenus] = useState([false, false, false]);
 
@@ -88,11 +91,30 @@ const MobileNavbar = ({ setCurrentLang }) => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <div className="navbar-mobile-login">
-            <Link to={t("navbar.single-menu-3.path")}>
+          <div className="navbar-mobile-login" ref={navRef}>
+            <Link 
+              to={userName ? undefined : t("navbar.single-menu-3.path")}
+              onClick={(e) => {
+                if (userName) {
+                  e.preventDefault();
+                  setIsDropdownOpen(!isDropdownOpen);
+                }
+              }}
+            >
               <img src={userIcon} alt="User-Icon" />
             </Link>
-            <Link to={t("navbar.single-menu-3.path")} className="navbar-link">{userName ? userName : t("navbar.single-menu-3.title")}</Link>
+
+            <Link 
+              to={userName ? "#" : t("navbar.single-menu-3.path")} 
+              className="navbar-link"
+              onClick={(e) => {
+                if (userName) setIsDropdownOpen(!isDropdownOpen);
+              }}
+            >
+              {userName ? userName : t("navbar.single-menu-3.title")}
+            </Link>
+
+            {isDropdownOpen && <NavbarDropdownMenu triggerRef={navRef} />}
           </div>
         </div>
       </div>

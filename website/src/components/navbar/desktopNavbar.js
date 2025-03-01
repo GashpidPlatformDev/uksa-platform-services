@@ -8,7 +8,7 @@ import NavbarDropdownMenu from './dropdown';
 
 
 const DesktopNavbar = ({ currentLang, setCurrentLang }) => {
-  const loginRef = useRef(null);
+  const navRef = useRef(null);
   const { profile } = useTask();
   const { t, i18n } = useTranslation();
   const [userName, setUserName] = useState(null);
@@ -113,7 +113,7 @@ const DesktopNavbar = ({ currentLang, setCurrentLang }) => {
               <Link to={t("navbar.single-menu-2.path")} className="navbar-link">{t("navbar.single-menu-2.title")}</Link>
             </NavItem>
           </Nav>
-          <Nav className="navbar-desktop-login" ref={loginRef}>
+          <Nav className="navbar-desktop-login" ref={navRef}>
             <Link 
               to={userName ? undefined : t("navbar.single-menu-3.path")}
               onClick={(e) => {
@@ -136,7 +136,7 @@ const DesktopNavbar = ({ currentLang, setCurrentLang }) => {
               {userName ? userName : t("navbar.single-menu-3.title")}
             </Link>
 
-            {isDropdownOpen && <NavbarDropdownMenu triggerRef={loginRef} />}
+            {isDropdownOpen && <NavbarDropdownMenu triggerRef={navRef} />}
           </Nav>
         </div>
       </div>
