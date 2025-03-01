@@ -126,10 +126,15 @@ cd - || exit 1
 ####################
 # Install react-app
 ####################
-cd website/docker || exit 1
-sudo nano docker-compose.yml
+cd website || exit 1
 sudo nano .env.production
 cp .env.production .env
+npm install --legacy-peer-deps
+npm install ajv ajv-keywords --legacy-peer-deps
+npm run build
+cd - || exit 1
+cd website/docker || exit 1
+sudo nano docker-compose.yml
 docker-compose up --build -d
 cd - || exit 1
 
@@ -137,9 +142,9 @@ cd - || exit 1
 ######################
 # Install email resend
 ######################
-cd backend/docker || exit 1
-sudo nano docker-compose.yml
+cd backend || exit 1
 sudo nano .env.production
 cp .env.production .env
-docker-compose up --build -d
+docker build -f docker/Dockerfile . -t mailapi:1.0
+docker-compose -f docker/docker-compose.yml up -d
 cd - || exit 1
