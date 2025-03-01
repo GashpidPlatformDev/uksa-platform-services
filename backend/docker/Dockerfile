@@ -10,8 +10,6 @@ COPY ../. .
 # Instalar las dependencias de producción (sin devDependencies)
 RUN npm install --omit=dev
 
-# Copiar el resto del código de la aplicación
-
 # Exponer el puerto en el que la API escucha
 EXPOSE 2000
 
