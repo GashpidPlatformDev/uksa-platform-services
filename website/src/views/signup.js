@@ -23,7 +23,6 @@ function SignUp() {
       const value = e.target.value.replace(/\D/g, '');
       setter(value);
     };
-    
 
     const handleSubmit = async (e) => {
       e.preventDefault();
