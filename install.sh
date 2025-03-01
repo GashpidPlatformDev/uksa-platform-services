@@ -33,6 +33,13 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo apt install nginx -y
 
 
+##################
+# Install Node js
+##################
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y nodejs npm
+
+
 ####################################
 # Setup and configure your firewall
 ####################################
