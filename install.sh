@@ -128,6 +128,8 @@ cd - || exit 1
 ####################
 cd website/docker || exit 1
 sudo nano docker-compose.yml
+sudo nano .env.production
+cp .env.production .env
 docker-compose up --build -d
 cd - || exit 1
 
@@ -137,5 +139,7 @@ cd - || exit 1
 ######################
 cd backend/docker || exit 1
 sudo nano docker-compose.yml
+sudo nano .env.production
+cp .env.production .env
 docker-compose up --build -d
 cd - || exit 1
