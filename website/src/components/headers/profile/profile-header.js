@@ -1,36 +1,41 @@
 import { man1Icon, man2Icon, userProfile, woman1Icon, woman2Icon } from "components/imports/imports";
-import React, { useEffect, useState } from "react";
-import { fetchUserAvatar } from "schema/storage";
+import { defaultAvatart, table } from "components/structures";
 import AvatarUpload from "components/utils/AvatarUpload";
+import React, { useCallback, useEffect, useState } from "react";
+import { fetchUserAvatar } from "schema/storage";
 import { useTranslation } from "react-i18next";
 import { useTask } from "context/TaskContext";
 import { client } from "schema/client";
-import { defaultAvatart, defaultFlag, table } from "components/structures";
 
 function ProfilePageHeader() {
     const { t } = useTranslation();
     const [email, setEmail] = useState('');
     const [isOpen, setIsOpen] = useState(false);
+    const [areaCode, setAreaCode] = useState('');
     const [lastName, setLastName] = useState('');
     const [password, setPassword] = useState('');
     
     const [firstName, setFirstName] = useState('');
-    const [phoneType, setPhoneType] = useState('');
     const [userName, setUserName] = useState(null);
     const [activeTab, setActiveTab] = useState("1");
     const [phoneNumber, setPhoneNumber] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
     const [isAvatarUpload, setIsAvatarUpload] = useState(false);
     const [passwordMismatch, setPasswordMismatch] = useState(false);
-    const { profile, userId, avatarUrl, setAvatarUrl, courseUrl, courseId, setCourseId, setCourseUrl, updateProfile } = useTask();
+    const { profile, userId, avatarUrl, setAvatarUrl, /*courseUrl, courseId, setCourseId, setCourseUrl,*/ updateProfile } = useTask();
     
 
-    const updateDefaultCoursePortrait = async (fileName) => {
+    /*const updateDefaultCoursePortrait = async (fileName) => {
         await client.from("courses").update({ avatar: fileName }).eq("id", courseId);
         setCourseUrl(defaultFlag[fileName])
-    }
+    }*/
 
-    const loadAvatar = async () => {
+    const handleNumericChange = (setter) => (e) => {
+        const value = e.target.value.replace(/\D/g, '');
+        setter(value);
+      };
+
+    const loadAvatar = useCallback( async () => {
         const fileName = profile?.data[0]?.avatar;
         const rol = profile?.data[0]?.rol;
 
@@ -54,29 +59,30 @@ function ProfilePageHeader() {
         catch (e) {
             throw e;
         }
-        
-    };
+    },[profile?.data, userId, setAvatarUrl, setActiveTab]);
 
     useEffect(() => {
         if(profile?.data[0]) {
             const name = profile?.data[0]?.name.split(" ");
-            const lastName = profile?.data[0]?.lastname;
             const phoneNumber = profile?.data[0]?.phone;
+            const lastName = profile?.data[0]?.lastname;
+            const areacode = profile?.data[0]?.areacode;
             const firstName = profile?.data[0]?.name;
             const email = profile?.data[0]?.email;
             setPhoneNumber(phoneNumber);
             setFirstName(firstName);
             setLastName(lastName);
+            setAreaCode(areacode);
             setUserName(name);
             setEmail(email);
             loadAvatar();
         }
 
-    },[profile]);
+    },[profile, loadAvatar]);
 
     useEffect(() => {
         if(isAvatarUpload) loadAvatar();
-    },[isAvatarUpload]);
+    },[isAvatarUpload, loadAvatar]);
 
     /* section update profile */
     const handleChange = (setter) => (e) => setter(e.target.value);
@@ -86,46 +92,46 @@ function ProfilePageHeader() {
         setAvatarUrl(defaultAvatart[fileName])
     }
 
+    async function updateProfileData(){
+        try {
+            const { error: profileError } = await client
+                .from(table)
+                .update({
+                    name: firstName,
+                    lastname: lastName,
+                    phone: phoneNumber,
+                    areacode: areaCode
+                })
+                .eq("id", userId);
+                    
+            if (profileError) throw profileError;
+            updateProfile();
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         
         if (password !== repeatPassword) {
             setPasswordMismatch(true);
             setRepeatPassword('');
+            updateProfileData();
             setPassword('');
-            return;
         }
-
-        try {
-            await client.auth.updateUser({
-                email,
-                password
-            }).then(async (data, error) => {
-                if (error) throw error;
-                console.log("User Updated: ",data,error)
-
-            if (data?.data?.user) {
-                const { error: profileError } = await client
-                    .from(table)
-                    .update({
-                        name: firstName,
-                        lastname: lastName,
-                        phonetype: phoneType === "op1",
-                        phone: phoneNumber,
-                        areacode: 57
-                    })
-                    .eq("id", userId);
-                    
-                    if (profileError) throw profileError;
-                    updateProfile();
-                }
-            });
-        } catch (err) {
-            console.error("Error en el registro o actualización:", err.message);
+        else {
+            try {
+                await client.auth.updateUser({ email, password });
+                updateProfileData();
+            } catch (error) {
+                throw error;
+            }
         }
     };
 
-    const [title, setTitle] = useState("");
+  /*const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   // Función para manejar el envío del formulario
@@ -145,7 +151,7 @@ function ProfilePageHeader() {
     
 
     console.log("Course insert", data, error);
-  };
+  };*/
 
     return (
         <>
@@ -184,7 +190,7 @@ function ProfilePageHeader() {
             <div className={`profile-settings ${isOpen ? "open" : ""}`}>
                 <div className="settings-title">
                     <h2 className='auth-title' style={{color: "#665"}}>{t("profile.settings.title")}</h2>
-                    <p style={{width: "80%"}}>{t("profile.settings.text")}</p>
+                    <p style={{width: "80%", textAlign: "justify"}}>{t("profile.settings.text")}</p>
                 </div>
                 <div className="update-profile">
                     <div className="auth-container" style={{background: "transparent"}}>
@@ -218,17 +224,20 @@ function ProfilePageHeader() {
                             />
 
                             <div className='auth-phone-container'>
-                                <select value={phoneType} onChange={handleChange(setPhoneType)} required>
-                                    <option value="">{t("signup.phone.type.default")}</option>
-                                    <option value="op1">{t("signup.phone.type.op1")}</option>
-                                    <option value="op2">{t("signup.phone.type.op2")}</option>
-                                </select>
+                                <input
+                                    className='auth-input-phone-code' 
+                                    type="text" 
+                                    placeholder={t("signup.phone.areacode")} 
+                                    value={areaCode} 
+                                    onChange={handleNumericChange(setAreaCode)} 
+                                    required 
+                                />
                                 <input 
                                     className='auth-input-phone' 
                                     type="text" 
                                     placeholder={t("signup.phone.title")} 
                                     value={phoneNumber} 
-                                    onChange={handleChange(setPhoneNumber)} 
+                                    onChange={handleNumericChange(setPhoneNumber)} 
                                     required 
                                 />
                             </div>
@@ -238,8 +247,7 @@ function ProfilePageHeader() {
                                 type="password" 
                                 placeholder={passwordMismatch ? t("signup.pswd.mismatch") : t("signup.pswd.placeholder")}  
                                 value={password} 
-                                onChange={handleChange(setPassword)} 
-                                required 
+                                onChange={handleChange(setPassword)}
                             />
 
                             <input 
@@ -248,7 +256,6 @@ function ProfilePageHeader() {
                                 placeholder={passwordMismatch ? t("signup.pswd.mismatch") : t("signup.rpswd")}  
                                 value={repeatPassword} 
                                 onChange={handleChange(setRepeatPassword)} 
-                                required 
                             />
                             <button type="submit" className="auth-button">{t("profile.settings.btn1")}</button>
                         </form>
