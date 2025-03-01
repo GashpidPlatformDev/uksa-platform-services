@@ -65,7 +65,7 @@
             "item-4": "Français (fr)",
             "item-5": "Português (pt)"
         },
-        "dopdown": {
+        "dropdown": {
             "btn1": "Ir para o perfil",
             "btn2": "Terminar sessão"
         }
