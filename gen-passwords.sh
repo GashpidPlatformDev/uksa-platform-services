@@ -62,7 +62,7 @@ NEW_MARIADB_ROOT_PASSWORD=$(generatePassword)
 NEW_API_KEY=$(generatePassword)
 NEW_SECRET_KEY=$(generatePassword)
 
-# Reemplazar contraseñas en el archivo .env
+# Replace passwords in the file .env
 sed -i "s|POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$NEW_POSTGRES_PASSWORD|" "$ENV_FILE"
 sed -i "s|JWT_SECRET=.*|JWT_SECRET=$NEW_JWT_SECRET|" "$ENV_FILE"
 sed -i "s|DASHBOARD_PASSWORD=.*|DASHBOARD_PASSWORD=$NEW_DASHBOARD_PASSWORD|" "$ENV_FILE"
@@ -71,15 +71,15 @@ sed -i "s|VAULT_ENC_KEY=.*|VAULT_ENC_KEY=$NEW_VAULT_ENC_KEY|" "$ENV_FILE"
 sed -i "s|ANON_KEY=.*|ANON_KEY=$NEW_ANON_KEY|" "$ENV_FILE"
 sed -i "s|SERVICE_ROLE_KEY=.*|SERVICE_ROLE_KEY=$NEW_SERVICE_ROLE_KEY|" "$ENV_FILE"
 
-# Reemplazar claves en website/.env.production
+# Replace keys in website/.env.production
 sed -i "s|REACT_APP_SUPABASE_ANON_KEY=.*|REACT_APP_SUPABASE_ANON_KEY=$NEW_ANON_KEY|" "$FRONTEND_ENV_FILE"
 sed -i "s|REACT_APP_API_KEY=.*|REACT_APP_API_KEY=$NEW_API_KEY|" "$FRONTEND_ENV_FILE"
 
-# Reemplazar claves en backend/.env.production
+# Replace keys in backend/.env.production
 sed -i "s|ANON_KEY=.*|ANON_KEY=$NEW_API_KEY|" "$BACKEND_ENV_FILE"
 sed -i "s|SECRET_KEY=.*|SECRET_KEY=$NEW_SECRET_KEY|" "$BACKEND_ENV_FILE"
 
-# Reemplazar contraseñas en moodle/docker-compose.yml
+# Replace passwords in moodle/docker-compose.yml
 sed -i "s|MOODLE_DATABASE_PASSWORD=.*|MOODLE_DATABASE_PASSWORD=$NEW_MOODLE_DB_PASSWORD|" "$MOODLE_COMPOSE_FILE"
 sed -i "s|MARIADB_PASSWORD=.*|MARIADB_PASSWORD=$NEW_MOODLE_DB_PASSWORD|" "$MOODLE_COMPOSE_FILE"
 sed -i "s|MOODLE_PASSWORD=.*|MOODLE_PASSWORD=$NEW_MOODLE_PASSWORD|" "$MOODLE_COMPOSE_FILE"
